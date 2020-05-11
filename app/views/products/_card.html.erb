@@ -1,15 +1,16 @@
 
-<div class="card text-center my-3 col-md-4 col-xs-12" style="max-width:30%; min-width:18rem;">
-  <%= image_tag picture_for(product) , alt: "#{product.title} image", class: 'card-img-top img_fluid' %>
-  <div class="card-body">
-    <h5 class="card-title"><%= product.title %></h5>
-    <h6 class="card-subtitle mb-2 text-muted">Rank: <%= product.rank %></h6>
-    <h6 class="card-subtitle mb-2 text-muted">Quantity: <%= product.quantity %></h6>
-    <h6 class="card-subtitle mb-2 text-muted">Description: <%= product.description %></h6>
-    <h6 class="card-subtitle mb-2 text-muted">Price: <%= product.price %></h6>
+  <div class="card my-3 col-md-4 col-xs-12" style="max-width:18%; min-width:18rem;">
+    <%= image_tag picture_for(product) , alt: "#{product.title} image", class: 'card-img-top img_fluid' %>
 
-    <h6 class="card-subtitle mb-2 text-muted">Farmer: <%= product.farmer.name %></h6>
-
+    <div class="card-body">
+      <h5 class="card-title"><%= product.title %></h5>
+      <h6 class="card-text mb-2 text-muted">Rank: <%= product.rank %></h6>
+      <h6 class="card-text mb-2 text-muted">Quantity: <%= product.quantity %></h6>
+      <h6 class="card-text mb-2 text-muted">Farmer: <%= product.farmer.name %></h6>
+      <h6 class="card-subtitle mb-2 text-muted">Price: <%= product.price %></h6>
+      <h6 class="card-text mb-2 text-muted">Description: <%= product.description %></h6>
       
+        
+    </div>
+
   </div>
-</div>
