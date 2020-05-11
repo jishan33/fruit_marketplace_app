@@ -1,4 +1,4 @@
 class Farmer < ApplicationRecord
   has_many :products, dependent: :destroy
-  bleongs_to :user
+  belongs_to :user
 end
