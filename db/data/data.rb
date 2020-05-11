@@ -58,13 +58,15 @@ end
 
 def farmers 
 [
-  {
+  { 
+    name: "John Lu",
     address: '28 Jersey Parade yarra glen',
     fruit_types: 'pears, oranges, berries',
     introduction: 'Hello, I am a victorian farmer living in yarra glen, we produce fruit with passion and love'
   },
 
   {
+    name: "Melo",
     address: '33 Melanda Parade bunyip',
     fruit_types: 'pears,  Mandarins, strawberries',
     introduction: 'Hello, I am a farmer living in bunyip, we produce fruit freshest air, water, and sunlight'

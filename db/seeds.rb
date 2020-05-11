@@ -12,17 +12,17 @@ user_three = User.create(email: 'test-user3@fruit.com', password: 'password')
 puts "successfully seeded users ✅"
 
 puts "seeding farmers"
-farmers_record = nil
+farmers_records = []
 farmers.each do |item|
   item[:user_id] = user_one.id
-  farmers_record = Farmer.create(item)
+  farmers_records << Farmer.create(item)
 end
 puts "successfully seeded farmers ✅"
 
 
 puts "seeding products"
 products.each do |item|
-  item[:farmer_id] = farmers_record.id
+  item[:farmer_id] = farmers_records.sample.id
   products_record = Product.create(item.except(:picture))
   products_record.picture.attach(io: File.open("app/assets/images/seed/#{item[:picture]}"), filename: "#{item[:picture]}", content_type: 'image/jpg')
 end
