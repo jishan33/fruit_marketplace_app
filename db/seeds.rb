@@ -23,7 +23,7 @@ puts "successfully seeded farmers ✅"
 puts "seeding products"
 products.each do |item|
   item[:farmer_id] = farmers_record.id
- products_record = Product.create(item.except(:picture))
- products_record.picture.attach(io: File.open("app/assets/images/seed/#{item[:picture]}"), filename: "#{item[:picture]}", content_type: 'image/jpg')
+  products_record = Product.create(item.except(:picture))
+  products_record.picture.attach(io: File.open("app/assets/images/seed/#{item[:picture]}"), filename: "#{item[:picture]}", content_type: 'image/jpg')
 end
 puts "successfully seeded products ✅"
