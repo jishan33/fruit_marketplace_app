@@ -32,15 +32,16 @@
     
     
     <div class="show-edit-delete">
-      
-        <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm'%>
-        <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
+
+       
+          <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm'%>
+          <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
+       
       
             <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>   
-            
-            <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>
-         
+            <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>         
     </div>
+
   </div>
 </div>
 
