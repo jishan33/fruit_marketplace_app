@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'byebug'
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
@@ -18,8 +17,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do |user|
       if user.id != nil && user.user_type == "farmer"
-        farmer = params["farmer"]
-        farmer["user"] = user
+        farmer = params[:farmer]
+        farmer[:user] = user
         farmer.permit!
         Farmer.create(farmer)
       end
