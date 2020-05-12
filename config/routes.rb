@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :products
   devise_for :users, controllers: {
-        sessions: 'users/registrations',
+        registrations: 'users/registrations',
         sessions: 'users/sessions'
       }
   get "/dashboards", to: "dashboards#index", as: 'dashboard'

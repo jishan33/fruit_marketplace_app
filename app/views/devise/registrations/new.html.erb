@@ -21,10 +21,32 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :types %><br/>
-    <%= f.select(:type, User.user_types.keys)%>
-  </div>
+  <%= hidden_field(:user, :user_type, :value => @is_farmer_registration ? "farmer" : "normal")%>
+
+  <% if @is_farmer_registration %>
+    <%= fields_for :farmer do |i| %>
+      <div class="field">
+        <%= i.label :address %><br />
+        <%= i.text_field :address, autocomplete: "address" %>
+      </div>
+
+      <div class="field">
+        <%= i.label :fruit_types %><br />
+        <%= i.text_field :fruit_types %>
+      </div>
+
+      <div class="field">
+        <%= i.label :introduction %><br />
+        <%= i.text_field :introduction %>
+      </div>
+
+
+      <div class="field">
+        <%= i.label :name %><br />
+        <%= i.text_field :name %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
