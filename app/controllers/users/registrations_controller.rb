@@ -15,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+   
     super do |user|
       if user.id != nil && user.user_type == "farmer"
         farmer = params[:farmer]
