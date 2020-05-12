@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  # load_and_authorize_resource
   
 
   def index
@@ -15,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.listing.create(product_params)
+    @product = Product.create(product_params)
     if @product.errors.any?
       render :new
     else
@@ -28,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product = Product.update(product_params)
+    if @product.update(product_params)
       redirect_to @product
     else
       render :edit
@@ -48,7 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :rank, :quantity, :destcription, :price, :picture)
+    params.require(:product).permit(:title, :rank, :farmer_id, :quantity, :destcription, :price, :picture)
   end
 
 end
