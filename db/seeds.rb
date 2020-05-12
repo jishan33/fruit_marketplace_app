@@ -6,15 +6,17 @@ User.destroy_all
 
 puts "seeding users"
 # user_admin = User.create(email: 'admin@fruit.com', password: 'farmerno1', admin: true)
-user_one = User.create(email: 'test-user1@fruit.com', password: 'password')
-user_two = User.create(email: 'test-user2@fruit.com', password: 'password')
-user_three = User.create(email: 'test-user3@fruit.com', password: 'password')
+user_one = User.create(email: 'test-user1@fruit.com', password: 'password', user_type: "farmer")
+user_two = User.create(email: 'test-user2@fruit.com', password: 'password', user_type: "farmer")
+user_three = User.create(email: 'test-user3@fruit.com', password: 'password', user_type: "normal")
+
+admin1 = User.create(email: 'admin@fruit.com', password: 'password', user_type: "normal", admin: true)
 puts "successfully seeded users ✅"
 
 puts "seeding farmers"
 farmers_records = []
 farmers.each do |item|
-  item[:user_id] = user_one.id
+  # item[:user_id] = user_one.id
   farmers_records << Farmer.create(item)
 end
 puts "successfully seeded farmers ✅"

@@ -33,13 +33,16 @@
     
     <div class="show-edit-delete">
 
-       
+       <% if can? :edit, @restaurant %>
           <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm'%>
           <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
-       
-      
-            <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>   
-            <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>         
+      <% end %>
+        <% if user_signed_in? && current_user.admin == false%>
+            <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>
+            <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-success' %>  
+        <% else %>   
+            <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>   
+        <% end %>       
     </div>
 
   </div>

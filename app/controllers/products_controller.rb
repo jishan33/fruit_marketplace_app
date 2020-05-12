@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  # load_and_authorize_resource
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource
   
 
   def index
@@ -17,6 +17,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
+    @product.farmer = current_user.farmer
+     
+    
+
     if @product.errors.any?
       render :new
     else
@@ -38,9 +42,10 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to products_path
 
   end
+
 
   private 
 
