@@ -5,8 +5,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-     can [:index, :show, :new, :create], Product
-     can [:edit, :update, :destroy], Product, farmer_id: user.farmer&.id
+     can [:index, :show], Product
+     can [:create, :edit, :update, :destroy], Product, farmer_id: user.farmer&.id
       if user.admin?  # additional permissions for administrators
         can :manage, :all
       end
