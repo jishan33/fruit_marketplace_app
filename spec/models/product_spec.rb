@@ -1,18 +1,20 @@
 require 'rails_helper'
-require 'byebug'
+
 
 RSpec.describe Product, type: :model do
- let!(:user) {
-   User.new(id: 1, email: "user@example.org", password: "very-secret", user_type: "farmer")
+ let(:user) {
+   User.create(email: "user@example.org", password: "very-secret", user_type: "farmer")
    }
- let!(:farmer) {
-   Farmer.new(user_id: user.id, name: "John Lu", address: "farmer address", fruit_types: "apples", introduction: "hello I am a farmer", id: 1)
+ let(:farmer) {
+   Farmer.create(user_id: user.id, name: "John Lu", address: "farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
    }
 
 
  
   subject {
+    
     described_class.new(
+
     title: 'Fruit Box',
     rank: 'A',
     description: 'Sweet and Tasty',
@@ -31,10 +33,11 @@ RSpec.describe Product, type: :model do
   
   context 'validation' do
 
-    # it 'is valid with valid attributes' do
+    it 'is valid with valid attributes' do
 
-    #   expect(subject).to be_valid
-    # end
+      expect(subject).to be_valid
+    end
+
 
     it 'is not valid without a title' do
       subject.title = nil
@@ -44,6 +47,11 @@ RSpec.describe Product, type: :model do
     it 'is not valid without a title has less than 1 letter' do
       subject.title = ""
       expect(subject).to_not be_valid
+    end
+
+     it 'is valid with a title has less than 15 letter' do
+      subject.title = "Crispy Apples"
+      expect(subject).to  be_valid
     end
 
     it 'is not valid without a rank' do
@@ -56,14 +64,24 @@ RSpec.describe Product, type: :model do
       expect(subject).to_not be_valid
     end
 
+    it 'is valid with a rank has less than 2 letters' do
+      subject.rank = "A+"
+      expect(subject).to  be_valid
+    end
+
     it 'is not valid without a description' do
       subject.description = nil
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a described_class has less than 1 letter' do
+    it 'is not valid without a description has less than 1 letter' do
       subject.description = ""
       expect(subject).to_not be_valid
+    end
+
+    it 'is valid with a description has less than 20 letters' do
+      subject.description = "sweet"
+      expect(subject).to  be_valid
     end
 
 
@@ -91,6 +109,12 @@ RSpec.describe Product, type: :model do
       subject.farmer_id = nil
       expect(subject).to_not be_valid
     end
+
+    it 'is valid with a farmer id ' do
+      subject.farmer_id = farmer.id
+      expect(subject).to  be_valid
+    end
+
   end
 
   context '#display_currency' do
