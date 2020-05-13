@@ -28,8 +28,10 @@ RSpec.feature "Farmer submits a product" do
     fill_in 'product_description', with: product_description
     fill_in 'product_price', with: product_price
     first('input#product_farmer_id', visible: false).set("#{Farmer.first.id}")
-
+    
+    
     click_on 'Create Product'
+
 
     save_and_open_page
 
