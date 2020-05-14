@@ -49,7 +49,7 @@ RSpec.describe Product, type: :model do
       expect(subject).to_not be_valid
     end
 
-     it 'is valid with a title has less than 15 letter' do
+     it 'is valid with a title has less than 50 letter' do
       subject.title = "Crispy Apples"
       expect(subject).to  be_valid
     end
@@ -79,7 +79,7 @@ RSpec.describe Product, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is valid with a description has less than 20 letters' do
+    it 'is valid with a description has less than 200 letters' do
       subject.description = "sweet"
       expect(subject).to  be_valid
     end
