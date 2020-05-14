@@ -1,12 +1,28 @@
-<h1>Cart</h1>
+<h1>My Cart</h1>
 
-<ul>
-  <% @cart.each do |product| %>
-    <li><%= product.title %> | <%= number_to_currency(product.price) %></li> | <%= product.id %> | <%= link_to 'Delete', carts_path + "/#{product.id}", method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{product.title}?"} %>
+<div class="row justify-content-around">
+  <% @cart.cart_products.each do |cart_product| %>
+    <% product = cart_product.product %>
+ 
+      <div class="card my-3 col-md-4 col-xs-12" style="max-width:15%; min-width:15rem;">
+  
+      <%= image_tag product.picture, alt: "#{product.title} image", style: 'width:100%;',class: "card-img-top img_fluid" %>
+      <div class="card-body">
+        <p class="card-text"><%= product.title %></p> 
+        <%= number_to_currency(product.price) %>  
+        <%= link_to 'Delete', carts_path + "/#{cart_product.id}", method: :delete, class: 'btn btn-outline-info btn-sm', data: { confirm: "Really delete #{product.title}?"} %>
+      </div>
+    </div>
+  
   <% end %>
-</ul>
+</div>
 
-<%= link_to "Purchase All Now 💵", "", id: "stripe" %>
-<%= link_to "See Products", products_path, class: 'btn btn-primary sm' %>
+<div class="d-flex justify-content-center">
+
+  <%= link_to "Purchase All Now 💵", "", id: "stripe", class: "btn btn-success mr-2" %>  
+  <%= link_to "See Products", products_path, class: 'btn btn-primary sm' %>
+</div>
+
+
 <%= javascript_pack_tag "stripe" %>
 

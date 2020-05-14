@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   def index
     if user_signed_in? && current_user.cart
-      @cart = current_user.cart.products
+      @cart = current_user.cart
     else
       redirect_to products_path
     end
@@ -21,7 +21,7 @@ class CartsController < ApplicationController
 
   def destroy
     cart = current_user.cart
-    cart.cart_products.delete_by(product_id: params[:id])
+    cart.cart_products.delete(params[:id])
     cart.save
 
     redirect_to carts_path
