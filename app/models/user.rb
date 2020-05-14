@@ -6,5 +6,8 @@ class User < ApplicationRecord
   has_one :farmer, dependent: :destroy
   has_one :cart, dependent: :destroy
   enum user_type: {normal: 0, farmer: 1}
+
+  validates :username, presence: true, length: {in: 3..15}
+
   
 end

@@ -9,7 +9,7 @@ RSpec.feature "Farmer submits a product" do
     product_description = "Freshest local fruit"
     product_price = 80
     # Our product requires a store to be valid
-    user = User.create(email: 'email@domain.com', password: 'password', user_type: 'farmer')
+    user = User.create(username: 'Test user', email: 'email@domain.com', password: 'password', user_type: 'farmer')
     farmer = Farmer.create(user_id: user.id, name: "John Lu", address: "123 farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
 
 

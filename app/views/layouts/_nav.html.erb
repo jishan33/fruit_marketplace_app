@@ -18,13 +18,14 @@
 
     </div>
     <div class="navbar-nav">
-      <% unless user_signed_in? %>
+      <% if user_signed_in? %>
+        <%= link_to current_user.username, dashboard_path, class: 'navbar-brand' %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
+      <% else %>
         <%= link_to 'Register User', new_user_registration_path(user_type: "normal"), class: 'btn btn-outline-success ml-1' %>
         <%= link_to 'Register Farmer', new_user_registration_path(user_type: "farmer"), class: 'btn btn-outline-success ml-1' %>
 
         <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-success ml-1' %>
-      <% else %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
       <% end %>
     </div>
   </div>
