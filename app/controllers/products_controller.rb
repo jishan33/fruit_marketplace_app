@@ -16,10 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(product_params)
-    @product.farmer = current_user.farmer
-     
-    
+    @product = Product.create(product_params.merge({farmer_id: current_user.farmer.id}))
 
     if @product.errors.any?
       render :new
@@ -54,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :rank, :farmer_id, :quantity, :destcription, :price, :picture)
+    params.require(:product).permit(:title, :rank, :quantity, :description, :price, :picture)
   end
 
 end
