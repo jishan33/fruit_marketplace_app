@@ -17,7 +17,7 @@ def products
     description: "A classic assortment of fresh fruit that is expertly paired to make a just right gift!",
     price: 40,
     farmer_id: 1,
-    picture: "fruit_box2.jpg"
+    picture: "fruit_box3.jpg"
 
   },
 
@@ -28,7 +28,7 @@ def products
     description: "Freshest cheeries .",
     price: 50,
     farmer_id: 1,
-    picture: "fruit_box3.jpg"
+    picture: "fruit_box2.jpg"
 
   },
 

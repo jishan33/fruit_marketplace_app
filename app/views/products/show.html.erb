@@ -44,7 +44,7 @@
       <% end %>
         <% if user_signed_in? %>
             <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>
-            <%= link_to "Purchase", "", id: "stripe" %> 
+            <%= link_to "Add to cart", carts_path(product_id: @product.id), method: :post %> 
         <% else %>   
             <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>   
         <% end %>       
@@ -52,5 +52,3 @@
 
   </div>
 </div>
-
-<%= javascript_pack_tag "stripe" %>
