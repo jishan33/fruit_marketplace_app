@@ -1,4 +1,9 @@
 
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
+
 <div class="row content mt-3">
   <div class="col-md-4 d-flex justify-content-center">
     <%= image_tag picture_for(@product) , alt: "#{@product.title} image", class: 'mt-2', style: 'width:80%;' %>
@@ -33,13 +38,13 @@
     
     <div class="show-edit-delete">
 
-       <% if can? :edit, @restaurant %>
+       <% if current_user.farmer == @product.farmer%>
           <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm'%>
           <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
       <% end %>
-        <% if user_signed_in? && current_user.admin == false%>
+        <% if user_signed_in? %>
             <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>
-            <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-success' %>  
+            <%= link_to "Add to cart", carts_path(product_id: @product.id), method: :post %> 
         <% else %>   
             <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>   
         <% end %>       
@@ -47,4 +52,3 @@
 
   </div>
 </div>
-

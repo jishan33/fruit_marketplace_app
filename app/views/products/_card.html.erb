@@ -11,6 +11,7 @@
       <h6 class="card-text mb-2 text-muted">Description: <%= product.description %></h6>
     
     <%= link_to 'View', product_path(product), class: 'btn btn-primary' %>
+    <%= link_to "Add to cart", carts_path(product_id: product.id), method: :post, class: 'btn btn-success' %> 
     <% if current_user != nil && (current_user.user_type == "farmer" && current_user.farmer == product.farmer || current_user.admin?) %>
       <%= link_to 'Edit', edit_product_path(product.id), class: 'btn btn-info' %>
       <%= link_to 'Delete', product_path(product.id), method: :delete, class: 'btn btn-danger', data: {

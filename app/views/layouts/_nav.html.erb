@@ -13,6 +13,7 @@
       <% elsif user_signed_in? %>
         <%= link_to 'Add product', new_product_path, class: 'navbar-brand' %>
         <%= link_to 'Dashboard', dashboard_path, class: 'navbar-brand' %>
+        <%= link_to 'Products', products_path, class: 'navbar-brand' %>
       <% end %> 
 
 
@@ -20,6 +21,7 @@
     <div class="navbar-nav">
       <% if user_signed_in? %>
         <%= link_to current_user.username, dashboard_path, class: 'navbar-brand' %>
+        <%= link_to 'My Cart', carts_path %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
       <% else %>
         <%= link_to 'Register User', new_user_registration_path(user_type: "normal"), class: 'btn btn-outline-success ml-1' %>
