@@ -7,7 +7,7 @@ class Ability
     user ||= User.new
      can [:index, :show], Product
      can [:create, :edit, :update, :destroy], Product, farmer_id: user.farmer&.id
-      if user.admin?  # additional permissions for administrators
+      if user.admin?  
         can :manage, :all
       end
    
