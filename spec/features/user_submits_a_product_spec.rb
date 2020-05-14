@@ -13,7 +13,7 @@ RSpec.feature "Farmer submits a product" do
     farmer = Farmer.create(user_id: user.id, name: "John Lu", address: "123 farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
 
 
-    visit new_user_session_path
+    visit user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_on 'Log in'
@@ -27,7 +27,7 @@ RSpec.feature "Farmer submits a product" do
     fill_in 'product_quantity', with: product_quantity
     fill_in 'product_description', with: product_description
     fill_in 'product_price', with: product_price
-    first('input#product_farmer_id', visible: false).set("#{Farmer.first.id}")
+    
     
     
     click_on 'Create Product'
