@@ -9,7 +9,7 @@ class Ability
      
      if user.user_type == "farmer"
       can [:create], Product
-      can [:edit, :update, :destroy], Product, farmer_id: user.farmer.id 
+      can [:edit, :update, :destroy], Product, farmer_id: user.farmer
      end
     if user.admin?  
       can :manage, :all

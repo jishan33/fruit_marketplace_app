@@ -5,6 +5,18 @@ class FarmersController < ApplicationController
     @farmers = Farmer.all.sort_by{|i| i.id}
   end
 
+  def create 
+    @farmer = Farmer.create(farmer_params)
+
+    if @product.errors.any?
+      render :new
+    else
+      flash[:success] = "Your farmer account is created"
+      redirect_to @farmer
+    end
+  end 
+
+
   def edit 
   end
 

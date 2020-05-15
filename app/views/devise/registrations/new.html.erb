@@ -26,8 +26,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
  
-  <%= flash[:recaptcha_error] %>
-  <%= recaptcha_tags %>
 
   <%= hidden_field(:user, :user_type, :value => @is_farmer_registration ? "farmer" : "normal")%>
 
@@ -61,6 +59,9 @@
 
     <% end %>
   <% end %>
+  
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

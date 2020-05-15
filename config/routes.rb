@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :products, :farmers
   resources :carts, only: [:create, :index, :destroy]
  
-
+  
 
   devise_for :users, controllers: {
         registrations: 'users/registrations',
