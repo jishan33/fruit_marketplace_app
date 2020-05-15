@@ -1,0 +1,47 @@
+<%= form_with model: @farmer, url: farmers_path, local: true do |form| %>
+
+  <% if @farmer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@farmer.errors.count, "error") %> prohibited
+        this farmer from being saved:
+      </h2>
+      <ul>
+        <% @farmer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+ 
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fruit_types %>
+    <%= form.text_field :fruit_types, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :introduction %>
+    <%= form.text_area :introduction, class: 'form-control' %>
+  </div>
+ 
+  <div class="custom-file">
+    <%= form.label :picture, class: 'custom-file-label' %>
+    <%= form.file_field :picture, class: 'custom-file-input', id: 'customFile' %>
+  </div>
+
+  
+
+  <div>
+    <%= form.submit class: 'btn btn-success my-2' %>
+  </div>
+<% end %>

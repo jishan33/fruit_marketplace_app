@@ -1,0 +1,43 @@
+<h1>Local Farmers</h1>
+
+<% @farmers.each do |farmer| %>
+  <%=image_tag farmer_pic(farmer), alt: "#{farmer.name} image", class: 'mt-3', style: 'width: 50%;'%>
+
+    <div>
+      <strong>Farmer:  </strong>
+      <span><%= farmer.name %></span>
+    </div>
+
+    <div>
+      <strong>Fruits:  </strong>
+      <span><%= farmer.fruit_types %></span>
+    </div>
+
+
+    <div>
+      <strong>Address:  </strong>
+      <span><%= farmer.address %></span>
+    </div>
+
+    <div>
+      <strong>Introdution:  </strong>
+      <span><%= farmer.introduction %></span>
+    </div>
+
+  
+
+    <div class="show-edit-delete">
+      <% if current_user.admin %>
+        <%= link_to 'Edit', edit_farmer_path(farmer.id), class: 'btn btn-info sm'%>
+
+        <%= link_to 'Delete', farmer_path(farmer.id), method: :delete, class: 'btn btn-info sm', data: { confirm: "Really delete #{farmer.name}?"} %>
+      <% else %>
+        <%= link_to 'Back', products_path, class: 'btn btn-info sm' %>
+      <% end %>
+    </div>
+
+
+  <% end %>
+
+
+
