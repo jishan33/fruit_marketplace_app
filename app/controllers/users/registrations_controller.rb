@@ -15,23 +15,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-   
-    super do |user|
-      if user.id != nil && user.user_type == "farmer"
-        farmer = params[:farmer]
-        farmer[:user] = user
-        farmer.permit!
-        byebug
-                user.user_farmer.build(params[:farmer])
-        Farmer.create(farmer)
-      end
-    end
+    super
   end
 
-
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :user_type])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, farmer_attributes: [:name, :address, :introduction, :fruit_types, :picture]])
   end
   
 

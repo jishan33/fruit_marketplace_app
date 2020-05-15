@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -30,7 +30,9 @@
   <%= hidden_field(:user, :user_type, :value => @is_farmer_registration ? "farmer" : "normal")%>
 
   <% if @is_farmer_registration %>
-    <%= fields_for :farmer do |i| %>
+    <%= nested_form_for([resource_name, resource.with_farmer], url: registration_path(resource_name)) do |j| %>
+
+    <%= j.fields_for :farmer do |i| %>
 
       <div class="field">
         <%= i.label :name %><br />
@@ -57,17 +59,26 @@
         <%= i.file_field :picture %>
       </div>
 
-    <% end %>
-  <% end %>
   
-  <%= flash[:recaptcha_error] %>
-  <%= recaptcha_tags %>
 
-  <div class="actions">
+      <div class="actions">
+          <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
 
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@is_farmer_registration %>
+      <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
+      <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+  <% end %>
+<% end %>
 
 
 <%= render "devise/shared/links" %>

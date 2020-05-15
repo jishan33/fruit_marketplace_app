@@ -9,5 +9,11 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: {in: 3..15}
 
+  accepts_nested_attributes_for :farmer
+
+  def with_farmer
+    build_farmer if farmer.nil?
+    self
+  end
   
 end
