@@ -33,6 +33,12 @@
 
   <% if @is_farmer_registration %>
     <%= fields_for :farmer do |i| %>
+
+      <div class="field">
+        <%= i.label :name %><br />
+        <%= i.text_field :name %>
+      </div>
+
       <div class="field">
         <%= i.label :address %><br />
         <%= i.text_field :address, autocomplete: "address" %>
@@ -48,11 +54,11 @@
         <%= i.text_field :introduction %>
       </div>
 
-
-      <div class="field">
-        <%= i.label :name %><br />
-        <%= i.text_field :name %>
+      <div class="filed">
+        <%= i.label :picture %>
+        <%= i.file_field :picture %>
       </div>
+
     <% end %>
   <% end %>
 

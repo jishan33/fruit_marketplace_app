@@ -1,4 +1,6 @@
-<%= form_with model: @product, url: products_path, local: true do |form| %>
+<%= form_with model: @product, url: products_path+ "/#{@product.id}",  local: true do |form| %>
+
+
 
   <% if @product.errors.any? %>
     <div id="error_explanation">
