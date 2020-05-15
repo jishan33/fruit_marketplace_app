@@ -63,21 +63,23 @@
 
       <div class="actions">
           <%= flash[:recaptcha_error] %>
-  <%= recaptcha_tags %>
-    <%= f.submit "Sign up" %>
-  </div>
+          <%= recaptcha_tags %>
+          <%= f.submit "Sign up" %>
+      </div>
 
       <% end %>
     <% end %>
   <% end %>
 
-  <% if !@is_farmer_registration %>
+    <% if !@is_farmer_registration %>
       <%= flash[:recaptcha_error] %>
-  <%= recaptcha_tags %>
+      <%= recaptcha_tags %>
+
       <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-  <% end %>
+        <%= f.submit "Sign up" %>
+     </div>
+    <% end %>
+    
 <% end %>
 
 

@@ -8,18 +8,14 @@
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to 'Our Local Farmers', farmers_path, class: 'btn btn-outline-success ml-1' %>
-      <% if user_signed_in? %>
-        <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
-        <%= link_to 'Products', products_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
 
-        <% if current_user.farmer%> 
+      <% if user_signed_in? && current_user.farmer %> 
           <%= link_to 'Add product', new_product_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
-
-          <% if current_user.admin?  %>
-            <%= link_to 'Admin', dashboard_path, class: 'btn btn-outline-secondary mb-1 ml-1' %> 
-          <% end %>
-          
-        <% end %> 
+        <% elsif user_signed_in? && current_user.admin %>
+          <%= link_to 'Admin', dashboard_path, class: 'btn btn-outline-secondary mb-1 ml-1' %> 
+        <% else%>
+          <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
+          <%= link_to 'Products', products_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
       <% end %>
 
 

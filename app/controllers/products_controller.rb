@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   
 
   def index
-    @products = Product.all.sort_by{|i| i.id}
+    @products = Product.all
   end
 
   def show
@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params.merge({farmer_id: current_user.farmer.id}))
+    
 
     if @product.errors.any?
       render :new
