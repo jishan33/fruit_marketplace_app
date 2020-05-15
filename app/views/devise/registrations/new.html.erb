@@ -3,27 +3,35 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= f.label :username, class: "validationDefault01" %><br />
+        <%= f.text_field :username, class: "form-control",  id: "validationDefault01" %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= f.label :email, class: "validationDefault02" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",  id: "validationDefault02" %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= f.label :password, class: "validationDefault03" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",  id: "validationDefault03" %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= f.label :password_confirmation, class: "validationDefault04" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control",  id: "validationDefault04" %>
+      </div>
   </div>
  
 
@@ -34,30 +42,40 @@
 
     <%= j.fields_for :farmer do |i| %>
 
-      <div class="field">
-        <%= i.label :name %><br />
-        <%= i.text_field :name %>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= i.label :name, class: "validationDefault05" %><br />
+        <%= i.text_field :name, class: "form-control",  id: "validationDefault05" %> 
       </div>
+    </div>
 
-      <div class="field">
-        <%= i.label :address %><br />
-        <%= i.text_field :address, autocomplete: "address" %>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= i.label :fruit_types, class: "validationDefault06" %><br />
+        <%= i.text_field :fruit_types, class: "form-control",  id: "validationDefault06"%>
       </div>
+    </div>
 
-      <div class="field">
-        <%= i.label :fruit_types %><br />
-        <%= i.text_field :fruit_types %>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= i.label :address, class: "validationDefault07" %><br />
+        <%= i.text_field :address, autocomplete: "address", class: "form-control", id:"validationTooltip07"%>
       </div>
+    </div>
 
-      <div class="field">
-        <%= i.label :introduction %><br />
-        <%= i.text_field :introduction %>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= i.label :introduction, class: "validationDefault08" %><br />
+        <%= i.text_field :introduction, class: "form-control", id:"validationTooltip08" %>
       </div>
+    </div>
 
-      <div class="filed">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
         <%= i.label :picture %>
         <%= i.file_field :picture %>
       </div>
+    </div>
 
   
 
