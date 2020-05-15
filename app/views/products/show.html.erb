@@ -43,11 +43,10 @@
           <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
       <% end %>
         <% if user_signed_in? %>
-            <%= link_to 'Home', products_path, class: 'btn btn-primary sm' %>
-            <%= link_to "Add to cart", carts_path(product_id: @product.id), method: :post %> 
-        <% else %>   
+            <%= link_to "Add to cart", carts_path(product_id: @product.id), class: 'btn btn-success sm', method: :post %> 
+        <% end %>   
             <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %>   
-        <% end %>       
+               
     </div>
 
   </div>

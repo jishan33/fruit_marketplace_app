@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :carts, only: [:create, :index, :destroy]
  
 
- 
-  
 
   devise_for :users, controllers: {
         registrations: 'users/registrations',

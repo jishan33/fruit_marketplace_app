@@ -31,9 +31,9 @@
         <%= link_to 'Edit', edit_farmer_path(farmer.id), class: 'btn btn-info sm'%>
 
         <%= link_to 'Delete', farmer_path(farmer.id), method: :delete, class: 'btn btn-info sm', data: { confirm: "Really delete #{farmer.name}?"} %>
-      <% else %>
-        <%= link_to 'Back', products_path, class: 'btn btn-info sm' %>
       <% end %>
+      
+        <%= link_to 'Back', products_path, class: 'btn btn-info sm' %>
     </div>
 
 
