@@ -7,7 +7,7 @@
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <%= link_to 'Our Local Farmers', farmers_path, class: 'btn btn-outline-success ml-1' %>
+      <%= link_to 'Our Local Farmers', farmers_path, class: 'btn btn-outline-success ml-1 mb-1' %>
 
       <% if user_signed_in? && current_user.farmer %> 
           <%= link_to 'Add product', new_product_path, class: 'btn btn-outline-secondary mb-1 ml-1' %>
@@ -26,10 +26,10 @@
         <%= link_to "#{current_user.username}'s Cart", carts_path, class: 'btn btn-outline-secondary ml-1 mb-1' %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning ml-1 mb-1' %>
       <% else %>
-        <%= link_to 'User sing up', new_user_registration_path(user_type: "normal"), class: 'btn btn-outline-success ml-1' %>
-        <%= link_to 'Farmer sign up', new_user_registration_path(user_type: "farmer"), class: 'btn btn-outline-success ml-1' %>
+        <%= link_to 'User sing up', new_user_registration_path(user_type: "normal"), class: 'btn btn-outline-success mb-1 ml-1' %>
+        <%= link_to 'Farmer sign up', new_user_registration_path(user_type: "farmer"), class: 'btn btn-outline-success mb-1 ml-1' %>
 
-        <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-success ml-1' %>
+        <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-success mb-1 ml-1' %>
       <% end %>
     </div>
   </div>

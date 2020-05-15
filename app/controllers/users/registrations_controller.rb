@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, farmer_attributes: [:name, :address, :introduction, :fruit_types, :picture]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :user_type, farmer_attributes: [:name, :address, :introduction, :fruit_types, :picture]])
   end
   
 
