@@ -6,6 +6,7 @@ class FarmersController < ApplicationController
   end
 
   def create 
+    byebug
     @farmer = Farmer.create(farmer_params)
 
     if @product.errors.any?
