@@ -9,8 +9,10 @@
       <%= image_tag product.picture, alt: "#{product.title} image", style: 'width:100%;',class: "card-img-top img_fluid" %>
       <div class="card-body">
         <p class="card-text"><%= product.title %></p> 
-        <%= number_to_currency(product.price) %>  
-        <%= link_to 'Delete', carts_path + "/#{cart_product.id}", method: :delete, class: 'btn btn-outline-info btn-sm', data: { confirm: "Really delete #{product.title}?"} %>
+        <div class="d-flex justify-content-around">
+          <%= number_to_currency(product.price) %>  
+          <%= link_to 'Delete', carts_path + "/#{cart_product.id}", method: :delete, class: 'btn btn-outline-secondary btn-sm', data: { confirm: "Really delete #{product.title}?"} %>
+        </div>
       </div>
     </div>
   
