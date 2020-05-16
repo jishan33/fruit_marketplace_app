@@ -14,5 +14,5 @@ class Product < ApplicationRecord
   def display_currency
     '$' + sprintf('%.2f', (self.price).to_s)
   end
-  
+
 end

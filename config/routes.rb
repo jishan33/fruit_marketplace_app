@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations',
         sessions: 'users/sessions'
       }
+
   get "/dashboards", to: "dashboards#index", as: 'dashboard'
   get "/dashboards/:id", to: "dashboards#show" 
   
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
+
+  get "/search", to: "products#search", as: "search"
 
   root to: 'products#index'
 end

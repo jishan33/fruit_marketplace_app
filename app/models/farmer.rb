@@ -8,4 +8,6 @@ class Farmer < ApplicationRecord
   validates :fruit_types, presence: true, length: {in: 5...50}
   validates :introduction, presence: true, length: {in: 10...100}
 
+
+
 end

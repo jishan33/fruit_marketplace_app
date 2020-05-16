@@ -35,11 +35,13 @@
 
     <div class="navbar-nav">
 
-      <div class="ml-2 mr-2">
-        <form class="form-inline my-2 my-lg-0 d-flex justify-content-center ">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light my-2 my-sm-0" type="submit"><%= image_tag 'search.png', size: '30x30' %></button>
-        </form>
+      <div class="ml-4 mr-2">  
+        <div class="form-inline my-2 my-lg-0 d-flex justify-content-center ml-5">
+          <%= form_tag(search_path, :method => "get", class: "form-inline my-2 my-lg-0 d-flex justify-content-center") do %>   
+            <%= search_field_tag :search, params[:search], class: "form-control" %>  
+            <button class="btn btn-light my-2 my-sm-0" type="submit"><%= image_tag 'search.png', size: '30x30' %></button> 
+          <% end %>
+        </div>
       </div>
 
       <% if user_signed_in? %>
