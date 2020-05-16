@@ -12,7 +12,10 @@
       <% end %>
     
       <% if user_signed_in? && current_user.farmer %> 
-          <%= link_to 'Add product', new_product_path, class: 'btn btn-light mb-1 ml-1' %>
+          <%= link_to new_product_path, class: 'btn btn-light mb-1 ml-1' do %>
+            <%= image_tag 'add-product.png', size: '25x25' %>
+          <% end %>
+
         <% elsif user_signed_in? && current_user.admin %>
           <%= link_to dashboard_path, class: 'btn btn-light mb-1 ml-1' do %> 
             <%= image_tag 'admin.png', size: '30x30' %>

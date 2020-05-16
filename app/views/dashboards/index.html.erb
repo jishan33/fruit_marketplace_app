@@ -1,3 +1,9 @@
-<h1>Dashboards</h1>
+
+<% if current_user.farmer %>
+  <h1><%= "#{current_user.farmer.name} Dashboards" %></h1>
+<% elsif current_user.admin? %>
+  <h1><%= "#{current_user.username} Admin" %></h1>
+<% end %>
+
 
 
