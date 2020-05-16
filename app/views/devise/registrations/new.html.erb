@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Join Us to Support Local Farmers</h2>
 
 <div class="d-flex justify-content-center">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
@@ -39,6 +39,7 @@
     <%= hidden_field(:user, :user_type, :value => @is_farmer_registration ? "farmer" : "normal")%>
 
     <% if @is_farmer_registration %>
+
       <%= nested_form_for([resource_name, resource.with_farmer], url: registration_path(resource_name)) do |j| %>
 
       <%= j.fields_for :farmer do |i| %>

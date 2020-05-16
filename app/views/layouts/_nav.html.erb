@@ -1,34 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to products_path, class: 'navbar-brand' do %> 
-    <%# <%= image_tag 'logo.svg', size: '30x30' %> 
+  <%= link_to products_path, class: 'navbar-brand ml-3' do %> 
+    <%= image_tag 'dragon-fruit.png', size: '50x50' %>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <%= link_to 'Local Farmers', farmers_path, class: 'btn btn-light ml-1 mb-1' %>
-      <%= link_to 'Products', products_path, class: 'btn btn-light mb-1 ml-1' %>
-      
-
+      <%= link_to farmers_path, class: 'btn btn-light ml-1 mb-1' do %>
+        <%= image_tag 'farmer.png', size: '30x30' %>
+      <% end %>
+    
       <% if user_signed_in? && current_user.farmer %> 
           <%= link_to 'Add product', new_product_path, class: 'btn btn-light mb-1 ml-1' %>
         <% elsif user_signed_in? && current_user.admin %>
-          <%= link_to 'Admin', dashboard_path, class: 'btn btn-light mb-1 ml-1' %>   
+          <%= link_to dashboard_path, class: 'btn btn-light mb-1 ml-1' do %> 
+            <%= image_tag 'admin.png', size: '30x30' %>
+          <% end %>
+
       <% end %>
 
       <% if user_signed_in? %>
-        <%= link_to "#{current_user.username}'s Cart", carts_path, class: 'btn btn-light ml-1 mb-1' %>
-        <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-light mb-1 ml-1' %>
+        <%= link_to carts_path, class: 'btn btn-light ml-1 mb-1' do %>
+          <%= image_tag 'cart.png', size: '30x30' %>
+        <% end %>
+
+
+      <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-light mb-1 ml-1' %>
       <% end %>
     </div>
 
     <div class="navbar-nav">
 
       <div class="ml-2 mr-2">
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 d-flex justify-content-center ">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-light my-2 my-sm-0" type="submit"><%= image_tag 'search.png', size: '30x30' %></button>
         </form>
       </div>
 
