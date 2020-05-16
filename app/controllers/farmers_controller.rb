@@ -2,7 +2,7 @@ class FarmersController < ApplicationController
   before_action :set_farmer, only: [:edit, :update, :destroy, :show]
   
   def index
-    @farmers = Farmer.all.sort_by{|i| i.id}
+    @farmers = Farmer.all
   end
 
   def create 

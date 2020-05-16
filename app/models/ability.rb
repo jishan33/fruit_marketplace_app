@@ -6,6 +6,7 @@ class Ability
   def initialize(user)
   user ||= User.new
    can :read, :all
+   can :search, :all
    
       if user.farmer?
         can :create, Product

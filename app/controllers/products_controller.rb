@@ -2,6 +2,28 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   load_and_authorize_resource
+
+  def search  
+    if params[:search].blank?
+      flash[:alert]= "Empty field"
+      redirect_to(root_path)
+    else
+     
+      @parameter = params[:search].downcase
+
+      is_number = @parameter.match(/^[0-9]+$/)
+      if(is_number)
+        price_target = @parameter.to_i
+        @results_product = Product.all.where("price <= :price_target", price_target: price_target)
+      else
+        @results_product = Product.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      end
+
+ 
+
+      @results_farmer = Farmer.all.where("lower(name) LIKE :search", search: "%#{@parameter}%") 
+    end 
+  end
   
 
   def index

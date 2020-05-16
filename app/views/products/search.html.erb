@@ -1,0 +1,11 @@
+
+<h4>Search Result</h4>
+<ul>
+  <% @results_product.each do |result| %>
+    <li><%= link_to "#{result.title} ($#{result.price})", product_path(result) %></li>
+  <% end %>
+
+  <% @results_farmer.each do |result| %>
+    <li><%= link_to "#{result.name}", farmers_path%></li>
+  <% end %>
+</ul>
