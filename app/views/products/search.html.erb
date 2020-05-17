@@ -1,11 +1,15 @@
 
-<h4>Search Result</h4>
-<ul>
+<h4 class="mt-3 mb-4">Search Result</h4>
+<ol>
   <% @results_product.each do |result| %>
-    <li><%= link_to "#{result.title} ($#{result.price})", product_path(result) %></li>
+    <li class=" mb-3"><%= link_to "#{result.title} ($#{result.price}) ", product_path(result) %><br>
+      <%= "#{result.description}"  %>
+    </li>
   <% end %>
 
   <% @results_farmer.each do |result| %>
-    <li><%= link_to "#{result.name}", farmers_path%></li>
+    <li><%= link_to "#{result.name}", farmer_path(result)%></li>
   <% end %>
-</ul>
+
+
+</ol>

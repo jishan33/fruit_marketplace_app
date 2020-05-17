@@ -18,9 +18,9 @@ users = [user_one, user_two]
 farmers_record = []
 
 puts "seeding farmers"
-farmers.each_with_index do |item, index|
-  item[:user_id] = users[index].id
-  farmers_record << Farmer.create(item)
+farmers.each_with_index do |farmer, index|
+  farmer[:user_id] = users[index].id
+  farmers_record << Farmer.create(farmer)
 end
 puts "successfully seeded farmers ✅"
 

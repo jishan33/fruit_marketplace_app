@@ -4,11 +4,11 @@
 <% end %>
 
 
-<div class="row content mt-3">
-  <div class="col-md-4 d-flex justify-content-center">
-    <%= image_tag farmer_pic(@farmer) , alt: "#{@farmer.name} image", class: 'mt-2', style: 'width:80%;' %>
+<div class="row content mt-3 d-flex justify-content-center">
+  <div class="col-md-8 d-flex justify-content-center">
+    <%= image_tag farmer_pic(@farmer) , alt: "#{@farmer.name} image", class: 'mt-2', style: 'width:100%;' %>
   </div>
-  <div class="col-md-8 text-align-center">
+  <div class="col-md-8 text-align-center mt-3">
   
     <div>
       <strong>Farmer:  </strong>
@@ -33,13 +33,17 @@
    
     
     
-    <div class="show-edit-delete">
+    <div class="show-edit-delete mt-3">
 
        <% if (current_user.farmer == @farmer) || current_user.admin? %>
           <%= link_to 'Edit', edit_farmer_path(@farmer), class: 'btn btn-info sm'%>
           <%= link_to 'Delete', farmer_path(@farmer), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@farmer.name}?"} %>
-      <% end %>
-      <%= link_to 'Back', farmers_path, class: 'btn btn-primary sm' %>   
+      <% end %> 
+      <div class="d-flex justify-content-end">
+        <%= link_to farmers_path, class: 'btn' do %>
+            <%= image_tag 'back.png', size: '30x30' %>
+        <% end %> 
+      </div>
               
     </div>
 

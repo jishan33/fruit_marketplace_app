@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
   def index
     if current_user.admin == true
-      @products =Product.all.sort_by{|i| i.id}
+      @products =Product.all
     elsif current_user.user_type == "farmer"
       @products = current_user.farmer.products.all.sort_by{|i| i.id}
     else

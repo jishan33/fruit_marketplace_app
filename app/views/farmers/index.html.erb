@@ -2,37 +2,28 @@
 
 
 <% @farmers.each do |farmer| %>
-<div class="row row-cols-3">
-  <div class="col-6">
+<div class="row row-cols-3 mb-3">
+  <div class="col-5">
     <%=image_tag farmer_pic(farmer), alt: "#{farmer.name} image", class: 'mt-3', style: 'width: 100%;'%>
   </div>
 
-  <div class="col-6 mt-4">
-    <div>
-      <strong>Farmer:  </strong>
-      <span><%= farmer.name %></span>
-    </div>
-
-    <div>
-      <strong>Fruits:  </strong>
-      <span><%= farmer.fruit_types %></span>
-    </div>
-
-
-    <div>
-      <strong>Address:  </strong>
-      <span><%= farmer.address %></span>
-    </div>
-
-    <div>
-      <strong>Introdution:  </strong>
-      <span><%= farmer.introduction %></span>
-    </div>
-
+  <div class="col-7 mt-4">
+    <article>
+      
+      <span><strong>Farmer: </strong><%= farmer.name %></span><br>
+  
+      <span ><strong>Fruit: </strong><%= farmer.fruit_types %></span><br>
+   
+      <span><strong>Address:</strong><%= farmer.address %></span><br>
+    
+      <span><strong>Introdution: </strong><%= farmer.introduction %></span>
+    
+    </article>
   
 
 
     <div class="show-edit-delete">
+      <%= link_to 'View', farmer_path(farmer.id), class: 'btn btn-info sm'%>
 
       <% if user_signed_in? %>
         <% if current_user.admin || current_user.farmer == farmer %>
@@ -42,7 +33,9 @@
         <% end %>
       <% end %>
       
-        <%= link_to 'Back', products_path, class: 'btn btn-info sm' %>
+        <%= link_to products_path, class: 'btn' do %>
+           <%= image_tag 'back.png', size: '25x25' %>
+          <% end %>
     </div>
   </div>
 </div>

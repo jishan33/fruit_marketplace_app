@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
         @results_product = Product.all.where("price <= :price_target", price_target: price_target)
       else
         @results_product = Product.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+        @results_product = Product.all.where("lower(description) LIKE :search", search: "%#{@parameter}%")
       end
 
  

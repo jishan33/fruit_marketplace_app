@@ -4,12 +4,12 @@
 <% end %>
 
 
-<div class="row content mt-3">
-  <div class="col-md-4 d-flex justify-content-center">
+<div class="row content mt-5 d-flex justify-content-center">
+  <div class="col-md-8 d-flex justify-content-center">
     <%= image_tag picture_for(@product) , alt: "#{@product.title} image", class: 'mt-2', style: 'width:80%;' %>
   </div>
-  <div class="col-md-8 text-align-center">
-    <h1><%= @product.title %></h1>
+  <div class="col-md-7 ml-4 mt-3">
+    <h3><%= @product.title %></h3>
     <div>
       <strong>Farmer:  </strong>
       <span><%= @product.farmer.name %></span>
@@ -31,25 +31,31 @@
     </div>
 
     <div>
-      <strong>Price:  </strong>
-      <span><%= @product.price %></span>
+      <strong>Price: $</strong>
+      <span><%= @product.price %> aud</span>
     </div>
     
-    
-    <div class="show-edit-delete">
-        <%= link_to 'Back', products_path, class: 'btn btn-primary sm' %> 
-
-        <% if user_signed_in? %>
-            <%= link_to "Add to cart", carts_path(product_id: @product.id), class: 'btn btn-success sm', method: :post %> 
-          
-
-          <% if current_user.farmer == @product.farmer|| current_user.admin?%>
-              <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm'%>
-              <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@product.title}?"} %>
-          <% end %>
-      <% end %>
-               
-    </div>
-
   </div>
+
+  <div class=" col-md-7 show-edit-delete d-flex justify-content-end ml-">
+    
+    <% if user_signed_in? %>
+       <%= link_to carts_path(product_id: @product.id), method: :post do %> 
+          <%= image_tag 'add-to.png', size: '35x35' %>
+        <% end %> 
+      
+
+      <% if user_signed_in? && (current_user.farmer == @product.farmer|| current_user.admin?) %>
+          <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info sm ml-2 mr-2'%>
+          <%= link_to 'Delete', product_path(@product), method: :delete, class: 'btn btn-danger sm mr-2', data: { confirm: "Really delete #{@product.title}?"} %>
+      <% end %>
+    <% end %>
+
+    <%= link_to 'javascript:history.go(-1);' do %>
+      <%= image_tag 'back.png', size: '30x30' %>
+    <% end %> 
+              
+  </div>
+
+  
 </div>
