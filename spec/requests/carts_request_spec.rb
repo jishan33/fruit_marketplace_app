@@ -11,7 +11,7 @@ RSpec.describe "Carts", type: :request do
 
       sign_in(user)
 
-      get "/carts/index"
+      get "/carts"
       expect(response).to have_http_status(:success)
     end
   end
