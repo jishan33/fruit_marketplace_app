@@ -18,8 +18,8 @@ users = [user_one, user_two]
 farmers_record = []
 
 puts "seeding farmers"
-farmers.each do |item|
-  item[:user_id] = users.sample.id
+farmers.each_with_index do |item, index|
+  item[:user_id] = users[index].id
   farmers_record << Farmer.create(item)
 end
 puts "successfully seeded farmers ✅"
