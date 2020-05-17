@@ -28,7 +28,10 @@
         <% end %>
 
       <% else %>
-        <%= link_to "Add to cart", user_session_path, class: 'btn btn-outline-secondary' %> 
+        <%= link_to user_session_path do %> 
+          <%= image_tag 'add-to.png', size: '35x35' %>
+        <% end %>
+
       
 
       <% end %>
