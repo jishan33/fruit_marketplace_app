@@ -10,15 +10,15 @@ RSpec.feature 'User signs up' do
 
     # Instructions
     visit root_path
-    click_on 'Register User'
-    fill_in 'user_username', with: user_username
-    fill_in 'user_email', with: user_email
-    fill_in 'user_password', with: user_password
-    fill_in 'user_password_confirmation', with: user_password
+    click_on 'User sign up'
+    fill_in 'user[username]', with: user_username
+    fill_in 'user[email]', with: user_email
+    fill_in 'user[password]', with: user_password
+    fill_in 'user[password_confirmation]', with: user_password
     #save_and_open_page
     click_on 'Sign up'
 
     # Asertion
-    expect(page).to have_content(user_username)
+    expect(page).to have_content('You have signed up successfully.')
   end
 end

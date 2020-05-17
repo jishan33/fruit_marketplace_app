@@ -14,19 +14,19 @@ RSpec.feature "Farmer submits a product" do
 
 
     visit user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
     click_on 'Log in'
 
     # login_as(user, :scope => :user)
 
     visit root_path
-    click_on 'Add product'
-    fill_in 'product_title', with: product_title
-    fill_in 'product_rank', with: product_rank
-    fill_in 'product_quantity', with: product_quantity
-    fill_in 'product_description', with: product_description
-    fill_in 'product_price', with: product_price
+    find(:xpath, '//*[@id="navbarNavAltMarkup"]/div[1]/a[2]').click
+    fill_in 'product[title]', with: product_title
+    fill_in 'product[rank]', with: product_rank
+    fill_in 'product[quantity]', with: product_quantity
+    fill_in 'product[description]', with: product_description
+    fill_in 'product[price]', with: product_price
     
     
     
