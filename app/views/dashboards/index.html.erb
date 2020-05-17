@@ -5,5 +5,12 @@
   <h1><%= "#{current_user.username} Admin" %></h1>
 <% end %>
 
+<div class="row justify-content-around">
+  <% @products.each do |product| %>
+    <%= render 'card', product: product %>
+  <% end %>
+  
+</div>
+
 
 
