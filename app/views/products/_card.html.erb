@@ -4,27 +4,32 @@
 
     <div class="card-body">
       <h5 class="card-title"><%= product.title %></h5>
-      <h6 class="card-text mb-2 text-muted">Rank: <%= product.rank %></h6>
       <h6 class="card-text mb-2 text-muted">Quantity: <%= product.quantity %></h6>
-      <h6 class="card-text mb-2 text-muted">Farmer: <%= product.farmer.name %></h6>
+
       <h6 class="card-subtitle mb-2 text-muted">Price: <%= product.price %></h6>
-      <h6 class="card-text mb-2 text-muted">Description: <%= product.description %></h6>
     
-    <%= link_to 'View', product_path(product), class: 'btn btn-outline-secondary' %>
-    <% if user_signed_in? %>
-      <%= link_to "Add to cart", carts_path(product_id: product.id), method: :post, class: 'btn btn-outline-secondary' %> 
+      <%= link_to 'View', product_path(product), class: 'btn btn-outline-secondary' %>
+    
 
-    
-      <% if current_user != nil && (current_user.user_type == "farmer" && current_user.farmer == product.farmer || current_user.admin?) %>
+
+
+      <% if user_signed_in? %>
+        <%= link_to "Add to cart", carts_path(product_id: product.id), method: :post, class: 'btn btn-outline-secondary' %> 
+
       
-        <%= link_to 'Edit', edit_product_path(product.id), class: 'btn btn-outline-secondary' %>
-        <%= link_to 'Delete', product_path(product.id), method: :delete, class: 'btn btn-outline-warning mt-1', data: {
-          confirm: "Delete #{product.title} confrimed?"
-        } %>
+        <% if current_user.user_type == "farmer" && current_user.farmer == product.farmer || current_user.admin? %>
         
-      <% end %>
+          <%= link_to 'Edit', edit_product_path(product.id), class: 'btn btn-outline-secondary' %>
+          <%= link_to 'Delete', product_path(product.id), method: :delete, class: 'btn btn-outline-warning mt-1', data: {
+            confirm: "Delete #{product.title} confrimed?"
+          } %>  
+        <% end %>
 
-    <% end %>
+      <% else %>
+        <%= link_to "Add to cart", user_session_path, class: 'btn btn-outline-secondary' %> 
+      
+
+      <% end %>
 
 
      

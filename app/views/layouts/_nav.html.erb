@@ -10,6 +10,8 @@
       <%= link_to farmers_path, class: 'btn btn-light ml-1 mb-1' do %>
         <%= image_tag 'farmer.png', size: '30x30' %>
       <% end %>
+      
+      <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-light mb-1 ml-1' %>
     
       <% if user_signed_in? && current_user.farmer %> 
           <%= link_to new_product_path, class: 'btn btn-light mb-1 ml-1' do %>
@@ -27,9 +29,6 @@
         <%= link_to carts_path, class: 'btn btn-light ml-1 mb-1' do %>
           <%= image_tag 'cart.png', size: '30x30' %>
         <% end %>
-
-
-      <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-light mb-1 ml-1' %>
       <% end %>
     </div>
 
