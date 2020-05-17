@@ -2,8 +2,12 @@
 
 
 <% @farmers.each do |farmer| %>
-  <%=image_tag farmer_pic(farmer), alt: "#{farmer.name} image", class: 'mt-3', style: 'width: 50%;'%>
+<div class="row row-cols-3">
+  <div class="col-6">
+    <%=image_tag farmer_pic(farmer), alt: "#{farmer.name} image", class: 'mt-3', style: 'width: 100%;'%>
+  </div>
 
+  <div class="col-6 mt-4">
     <div>
       <strong>Farmer:  </strong>
       <span><%= farmer.name %></span>
@@ -27,6 +31,7 @@
 
   
 
+
     <div class="show-edit-delete">
 
       <% if user_signed_in? %>
@@ -39,9 +44,9 @@
       
         <%= link_to 'Back', products_path, class: 'btn btn-info sm' %>
     </div>
+  </div>
+</div>
 
-
-  <% end %>
-
+<% end %>
 
 
