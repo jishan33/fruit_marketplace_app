@@ -7,10 +7,13 @@
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <%= link_to root_path, class: 'btn btn-light ml-1 mb-1' do %>
+        <%= image_tag 'home.png', size: '30x30' %>
+      <% end %>
+
       <%= link_to farmers_path, class: 'btn btn-light ml-1 mb-1' do %>
         <%= image_tag 'farmer.png', size: '30x30' %>
       <% end %>
-      <%= link_to "Home", root_path, class: 'btn btn-light ml-1 mb-1' %>
       
     
       <% if user_signed_in? && current_user.farmer %> 

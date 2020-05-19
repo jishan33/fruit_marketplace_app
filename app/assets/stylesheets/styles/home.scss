@@ -7,24 +7,24 @@
  .col.mb-2 img {
    display: inline-block;
    
-   width: 180px;
-   height: 150px;
+   width: 210px;
+   height: 170px;
    margin: 1px;
  }
   .col img {
-    width: 180px;
-    height: 150px;
+    width: 210px;
+    height: 170px;
     margin: 1px;
   }
 
  }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
  .col.mb-2 img {
    display: inline-block;
    
    width: 150px;
-   height: 100px;
+   height: 110px;
    margin: 1px;
  }
   .col img {
@@ -42,7 +42,10 @@
 }
 
 @media screen and (max-width: 550px){
-
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
    .col.mb-2 img {
    display: block; 
    width: 280px;
