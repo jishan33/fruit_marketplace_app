@@ -42,7 +42,9 @@
 
   
 
-  <div>
+  <div class="d-flex justify-content-between">
     <%= form.submit class: 'btn btn-success my-2' %>
+
+    <%= link_to 'Back', farmer_path(@farmer), class: 'btn btn-outline-success mt-2 mb-2' %>
   </div>
 <% end %>
