@@ -62,3 +62,20 @@ h1 {
     margin: 5px;
   }
 }
+
+@media screen and (max-width: 900px) {
+ 
+  #contact-us-pic{
+    h3 {
+      font-size: 25px;
+    }
+    img{
+    margin-top:25px;
+    max-width: 100px;
+    max-height: 100px;
+    }
+    button {
+      max-width: 100px;
+    }
+  }
+}
