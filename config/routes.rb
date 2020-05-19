@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
   
+ 
   resources :products, :farmers
   resources :carts, only: [:create, :index, :destroy]
  
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   post "/payments/webhook", to: "payments#webhook"
 
   get "/search", to: "products#search", as: "search"
+
+   get 'seasons', to: "seasons#index", as: "season"
 
   root to: 'home#index'
 end
