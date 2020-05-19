@@ -44,17 +44,16 @@
  
   <div class="row mt-3" style="width:90%;">
 
-    <div class="col-5 d-flex flex-column justify-content-center" id="contact-us-pic">
-  
-      <%=image_tag image_path("home/farmer-contact.jpg"), alt: "Us", size: "230x230" %>
+    <div class="col-3 d-flex flex-column" id="contact-us-pic">
+      <a href="contact-us"><h3>Contact Us</h3></a>
+      <%=image_tag image_path("home/farmer-contact.jpg"), alt: "Us", size: "180x180" %>
 
-      <button class="btn btn-success " style="width:230px; " type="submit">Submit >> </button>    
+      <button class="btn btn-success mb-5" style="width:180px; " type="submit">Submit >> </button>    
     </div>
 
    
 
-    <div class="col-7 mb-4">  
-      <h4>Contact Us</h4>
+    <div class="col-9 mb-4">  
 
       <form action="https://formspree.io/mjvozkeg" method="POST">
     
