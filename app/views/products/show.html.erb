@@ -4,12 +4,13 @@
 <% end %>
 
 
-<div class="row content mt-5 d-flex justify-content-center">
+<div class="row content d-flex justify-content-center">
   <div class="col-md-8 d-flex justify-content-center">
-    <%= image_tag picture_for(@product) , alt: "#{@product.title} image", class: 'mt-2', style: 'width:80%;' %>
+    <%= image_tag picture_for(@product) , alt: "#{@product.title} image", class: 'mt-2', style: 'width:50%;' %>
   </div>
-  <div class="col-md-7 ml-4 mt-3">
-    <h3><%= @product.title %></h3>
+
+  <div class="col-md-4 ml-5 mt-3 justify-content-center", style= 'width:60%;'>
+    <h4><%= @product.title %></h4>
     <div>
       <strong>Farmer:  </strong>
       <span><%= @product.farmer.name %></span>
@@ -31,13 +32,13 @@
     </div>
 
     <div>
-      <strong>Price: $</strong>
-      <span><%= @product.price %> aud</span>
+      <strong>Price: </strong>
+      <span><%= number_to_currency(@product.price) %> aud</span>
     </div>
     
   </div>
 
-  <div class=" col-md-7 show-edit-delete d-flex justify-content-end ml-">
+  <div class=" col-md-7 show-edit-delete d-flex justify-content-end mt-3 mr-5">
     
     <% if user_signed_in? %>
        <%= link_to carts_path(product_id: @product.id), method: :post do %> 

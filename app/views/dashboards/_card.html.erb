@@ -6,7 +6,7 @@
       <h6 class="card-title"><%= product.title %></h6>
       <h6 class="card-text mb-2 text-muted">Quantity: <%= product.quantity %></h6>
 
-      <h6 class="card-subtitle mb-2 text-muted">Price:  $<%= product.price %> aud</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Price:<%= number_to_currency(product.price) %> aud</h6>
     
 
       <%= link_to product_path(product) do %>
@@ -17,14 +17,18 @@
         <%= link_to carts_path(product_id: product.id), method: :post do %> 
           <%= image_tag 'add-to.png', size: '35x35' %>
         <% end %>
-
-      
+     
         <% if current_user.user_type == "farmer" && current_user.farmer == product.farmer || current_user.admin? %>
         
-          <%= link_to 'Edit', edit_product_path(product.id), class: 'btn btn-outline-secondary' %>
-          <%= link_to 'Delete', product_path(product.id), method: :delete, class: 'btn btn-outline-warning', data: {
+         <%= link_to edit_product_path(product.id) do %>
+            <%= image_tag 'edit.png', size: '30x30' %>
+          <% end %>
+
+          <%= link_to product_path(product.id), method: :delete, data: {
             confirm: "Delete #{product.title} confrimed?"
-          } %>  
+          } do %>  
+            <%= image_tag 'delete.png', size: '30x30' %>
+          <% end %>
         <% end %>
 
       <% else %>
