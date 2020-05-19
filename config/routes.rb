@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  
   resources :products, :farmers
   resources :carts, only: [:create, :index, :destroy]
  
@@ -20,5 +21,5 @@ Rails.application.routes.draw do
 
   get "/search", to: "products#search", as: "search"
 
-  root to: 'products#index'
+  root to: 'home#index'
 end
