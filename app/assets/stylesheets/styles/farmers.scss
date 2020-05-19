@@ -1,9 +1,13 @@
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   h1 {
     font-size: 30px;
   }
   article {
+    font-size: 12px;
+  }
+
+  .show-edit-delete{
     font-size: 10px;
   }
  }

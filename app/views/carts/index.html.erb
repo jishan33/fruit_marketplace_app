@@ -35,12 +35,13 @@
     <% @cart.cart_products.each do |cart_product| %>
       <tr>
           <td><%= cart_product.product.title %></td>
-          <td><%= cart_product.product.price %></td>
+          <td><%= number_to_currency(cart_product.product.price) + " aud" %></td>
       </tr>
     <% end %>
     <tr>
       <td>Total amount:</td>
-      <td><%= @cart.cart_products.inject(0) {|sum, cart_product| sum + cart_product.product[:price]}%></td>
+      <% total = @cart.cart_products.inject(0) {|sum, cart_product| sum + cart_product.product[:price]}%>
+      <td><%= number_to_currency(total) + " aud" %></td>
     </tr>
       
 
