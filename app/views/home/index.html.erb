@@ -24,7 +24,7 @@
   </div>
 
 
-  <div class="season-intro d-flex flex-column justify-content-center mt-5 text-aligh-center" style="width:90%">
+  <div class="row season-intro d-flex flex-column justify-content-center mt-5 text-aligh-center" style="width:90%">
     <h3>Australian Local Fruits</h3>
     <p>Australia is a country that produces a wide variety of fruits. The land and the climate are diverse, allowing nummerious types of fruits to grow and ripen in all seasons. In winter time, the most abundant selections are lemons, mandarins, and oranges. </p>
 
@@ -32,12 +32,51 @@
     
   </div>
 
-  <div class="links d-flex justify-content-end" style="width:90%;">
+  <div class="row links d-flex justify-content-end mt-3" style="width:90%;">
 
     <%= link_to "seasonal fruits ", season_path, class: "btn btn-success mt-2 mr-2 mb-2" %>
     <%= link_to products_path do %> 
       <%= image_tag 'fruit-bag.png', size: '50x50' %>
     <% end %>
+   
+  </div>
+
+ 
+  <div class="row mt-3" style="width:90%;">
+
+    <div class="col-5 d-flex flex-column justify-content-center" id="contact-us-pic">
+  
+      <%=image_tag image_path("home/farmer-contact.jpg"), alt: "Us", size: "230x230" %>
+
+      <button class="btn btn-success " style="width:230px; " type="submit">Submit >> </button>    
+    </div>
+
+   
+
+    <div class="col-7 mb-4">  
+      <h4>Contact Us</h4>
+
+      <form action="https://formspree.io/mjvozkeg" method="POST">
+    
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input type="name" name="name" id="name" placeholder="Enter your name" class="form-control">
+        </div>
+
+      
+        <div class="form-group">
+          <label for="email">Email: </label><input type="email" name="email" id="email" placeholder="Enter your email"  class="form-control">
+        </div>
+      
+
+        <div class="form-group">
+          <label for="comment">Comment: </label>
+          <textarea class="form-control" name="comment" id="comment"></textarea>
+        </div>
+          
+      </form>
+    </div>  
     
   </div>
 </div>
+  
