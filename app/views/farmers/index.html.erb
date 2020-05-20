@@ -30,7 +30,7 @@
 
           <%= link_to 'Delete', farmer_path(farmer.id), method: :delete, class: 'btn btn-info sm', data: { confirm: "Really delete #{farmer.name}?"} %>
         <% end %>
-      <% end %>
+      
       
         <%= link_to products_path, class: 'btn' do %>
            <%= image_tag 'back.png', size: '25x25' %>
