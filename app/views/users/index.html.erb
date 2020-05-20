@@ -1,35 +1,29 @@
 
-<div class="d-flex justify-content-center">
-<h1>Users </h1>
-  
-</div>
 
-<div class="d-flex justify-content-center align-content-center">
+<h1 class="mb-2 mt-2">Users </h1>
 
 
-  <table>
-    <thead>
+<div class="row col-12 d-flex justify-content-center mt-3">
+
+   <table class="table">
+    <thead class="thead-dark">
       <tr>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Functions</th>
-        <th colspan="4"></th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">User Type</th>
+        <th scope="col"></th>
       </tr>
     </thead>
-
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= user.password %></td>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.user_type %></td>
           
-          <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
+      
+        <td><%= link_to 'Destroy', user_table_path + "/#{user.id}",method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </table>
 </div>
 
