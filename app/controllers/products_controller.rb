@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   load_and_authorize_resource
 
+
+#searching engine algorithm will return the data in database  match to the search key words.
   def search  
     if params[:search].blank?
       flash[:alert]= "Empty field"
@@ -26,7 +28,7 @@ class ProductsController < ApplicationController
     end 
   end
   
-
+# this acion return all the products in the products table records and send them to the index view 
   def index
     @products = Product.all
   end
@@ -34,10 +36,12 @@ class ProductsController < ApplicationController
   def show
   end
 
+# instantiate a new product
   def new
     @product = Product.new
   end
 
+#this action create a new product with the fill in params and redirect to show page to present, the new product is instantiated in the new action.
   def create
     @product = Product.create(product_params.merge({farmer_id: current_user.farmer.id}))
     
@@ -53,6 +57,8 @@ class ProductsController < ApplicationController
   def edit
   end
 
+
+# this action update existed product with new params, the product is set by finding its id.
   def update
     if @product.update(product_params)
       redirect_to @product
@@ -61,6 +67,7 @@ class ProductsController < ApplicationController
     end
   end
 
+# the product is found by its id and this action deletes the product from the record. 
   def destroy
     @product.destroy
     redirect_to products_path
@@ -68,12 +75,14 @@ class ProductsController < ApplicationController
   end
 
 
-  private 
+private 
 
+# find the product by its id and the id is found from the string inquery.
   def set_product
     @product = Product.find(params[:id])
   end
 
+# allows product's attributes to be update and created. 
   def product_params
     params.require(:product).permit(:title, :rank, :quantity, :description, :price, :picture)
   end

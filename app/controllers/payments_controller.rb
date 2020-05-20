@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
+# this action will be performed when the payment has made successed, the items has been purchased, their quantity will be substracted by the purchased amount. Also the cart will be cleared out.
   def success
     cart = Cart.find(params[:cartId])
     products = cart.products
@@ -8,11 +9,8 @@ class PaymentsController < ApplicationController
         product.quantity -= 1
         product.save
       end
-  
-    
+
     cart.destroy
-
-
   end
 
   def webhook
@@ -25,6 +23,8 @@ class PaymentsController < ApplicationController
   
     head 200
   end
+
+  # stipe connected code
 
   def get_stripe_id
     cart = current_user.cart
