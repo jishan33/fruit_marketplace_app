@@ -14,6 +14,10 @@
       <%= link_to farmers_path, class: 'btn btn-light ml-1 mb-1' do %>
         <%= image_tag 'farmer.png', size: '30x30' %>
       <% end %>
+
+      <%= link_to products_path, class: 'btn btn-light ml-1 mb-1' do %>
+        <%= image_tag 'products.png', size: '30x30' %>
+      <% end %>
       
     
       <% if user_signed_in? && current_user.farmer %> 
@@ -27,6 +31,9 @@
         <% elsif user_signed_in? && current_user.admin %>
           <%= link_to dashboard_path, class: 'btn btn-light mb-1 ml-1' do %> 
             <%= image_tag 'admin.png', size: '30x30' %>
+          <% end %>
+          <%= link_to users_table_path, class: 'btn btn-light mb-1 ml-1' do %> 
+            <%= image_tag 'users.png', size: '30x30' %>
           <% end %>
       <% end %>
 
@@ -49,7 +56,7 @@
       </div>
 
       <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning ml-1 mb-1' %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1 mb-1' %>
       <% else %>
         <%= link_to 'User sign up', new_user_registration_path(user_type: "normal"), class: 'btn btn-outline-success mb-1 ml-1' %>
         <%= link_to 'Farmer sign up', new_user_registration_path(user_type: "farmer"), class: 'btn btn-outline-success mb-1 ml-1' %>
@@ -58,7 +65,7 @@
       <% end %>
 
       <%= link_to root_path(anchor: "contact-us"), class: 'btn btn-light ml-1 mb-1' do %>
-        <%= image_tag 'contact-us.png', size: '30x30' %>
+        <%= image_tag 'contact-us.png', size: '25x25' %>
       <% end %>
     </div>
   </div>

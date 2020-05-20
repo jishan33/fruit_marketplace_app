@@ -10,6 +10,6 @@ load_and_authorize_resource
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to user_table_path
+    redirect_to users_table_path
   end
 end
