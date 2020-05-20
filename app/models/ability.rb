@@ -11,6 +11,7 @@ class Ability
       if user.farmer?
         can :create, Product
         can :manage, Product, farmer_id: user.farmer.id
+        can :manage, Farmer, farmer.id: user.farmer.id
       end
 
       if user.admin?  
