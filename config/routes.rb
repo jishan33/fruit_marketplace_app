@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   
  
+  get 'users/index'
   resources :products, :farmers
   resources :carts, only: [:create, :index, :destroy]
  

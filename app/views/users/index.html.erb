@@ -1,0 +1,36 @@
+
+<div class="d-flex justify-content-center">
+<h1>Users </h1>
+  
+</div>
+
+<div class="d-flex justify-content-center align-content-center">
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Functions</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
