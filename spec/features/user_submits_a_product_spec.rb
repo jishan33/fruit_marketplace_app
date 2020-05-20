@@ -18,10 +18,8 @@ RSpec.feature "Farmer submits a product" do
     fill_in 'user[password]', with: user.password
     click_on 'Log in'
 
-    # login_as(user, :scope => :user)
 
-    visit root_path
-    find(:xpath, '//*[@id="navbarNavAltMarkup"]/div[1]/a[2]').click
+    find(:xpath, '//*[@id="navbarNavAltMarkup"]/div[1]/a[4]').click
     fill_in 'product[title]', with: product_title
     fill_in 'product[rank]', with: product_rank
     fill_in 'product[quantity]', with: product_quantity

@@ -79,6 +79,19 @@ Local fruit farmers and general people.
  - CanCanCan
  - RSpec
 
+## Explanation for three high-level components(abstractions)
+### Active Record
+Active record is an abstraction layer above SQL, it allows rails apps to declare models and relationships between models. Using this definition, it provides simple methods to create, read, delete, and update database records, representing these models. This allows the developer to write higher level code without worring the specifics of writing valid SQL statements or associated security issues, such as SQL injection.
+
+
+### Active Storage
+Active storage is an abstraction layer above online file storage solutions, such as Amazon S3. It allows rails developers to define attached images on their models. It then stores the metadata for these images in active storage tables and handles the uploading to s3. It also provides routes to fetch these images from s3 behind the scenes as well as helpers to allow app developers to link to these attachments in erb pages.
+
+
+### Action View
+Action view is a helper within rails which works with action controllers to make it easy to render the html views for your application. It relies on controllers to interact with the database and declare instance variables which can then be ready by embedded ruby code within an erb file. Action view also provides many helpers make the creation of html views easier such as form helpers which work with rails models to define forms for creating and updating and link helpers to make it easier to provide links to specific routes within the rails application. All of this helps the developer to write less repetitive and more meaningful code in their views which hopefully makes it easier to maintain.
+
+
 ## Entity Relationship Diagram
 
 ![Fruit marketplace ERD](./docs/ERD.png)
@@ -89,17 +102,25 @@ Local fruit farmers and general people.
  - has one cart 
  - has one farmer
 
+ The user table is meant to represent a user of the app. This could be either a customer who wants to buy fruit or a farmer who want to sell. The type of user is distinguished by the user_type enum column. A farmer user requires some additional informaton such as an image and address, so for a farmer user, there is also a has one relationship with a farmer entry which captures this information.
+
 ##### Farmers
  - belongs to user
  - has many products
+
+ Farmers are the people who want to sell their products on the website. A user who is a farmer has an associated row here to capture some additional information only relevant to farmers. Also, as only farmers are able to list products on the website, a has many relationship is defined between farmers and products.
+
 ##### Products
  - belongs to farmer
  - has many carts
+
+The products table captures basic information about the products on the website such as price, description and an image. Every product belongs to a farmer as farmers are the only people who may list products on the site. A product may also be placed into a users cart, therefore a has_many relationship exists between products and carts.
+
 ##### Carts
  - belongs to user
  - has many products
 
-
+ The carts table provides the ability for users to create a collection of itemw which they wish to buy and have this persist if the user decides to come back later. As such, carts belong to users and have many products. Upon checkout, the cart for the specific user is emptied of products.
 
 
 

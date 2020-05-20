@@ -1,0 +1,45 @@
+Project fruit_marketplace_app {
+  database_type: 'PostgreSQL'
+}
+
+table users {
+  id int [pk]
+  email string
+  password string
+  username string
+  usertype enum 
+  admin boolean
+  
+}
+
+table carts {
+  id int [pk]
+  completed boolean
+  user_id int [ref: - users.id]
+}
+
+table cart_products {
+  id int [pk]
+  cart_id int [ref: < carts.id]
+  product_id int [ref: < products.id]
+}
+
+table products {
+  id integer [pk]
+  title string
+  rank varchar
+  description text
+  quantity int
+  price int 
+  farmer_id int [ref: > farmers.id]
+}
+
+table farmers {
+  id int [pk]
+  name string
+  address text
+  fruit_types text
+  introduction text
+  user_id int [ref: - users.id]
+}
+
