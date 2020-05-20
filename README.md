@@ -23,15 +23,21 @@ Provide local fruit farmers a friendly online selling platform to assist farmers
 
 ## User Stories
 
-#### Farmers 
-There is a form for farmers to sign up. Once they finised sign up, they can post their products to sell and also update and delete. The completed farmer sign up form will be posted on the local farmers page directly to increase their visibility. Farmers account can purchase products as well.
+As a buyer, I want to sign up, login, and logout securely as well as make purchases via very secure websites. 
 
-#### Users
-Users can select user sign up button to sign up. After signed up, users can view every pages and add products to their carts and complete purchases via credit card and debit cards. The total amout of the payment will be displaed on a table in their cart page. Once the purchase is completed, the products quantity will be updated automatically. 
+As a farmer, I want to sign up, login, and logout securely. Post my product with high visibility and add new products relatively easy. More importantly, I would like to receive my payment farirly easy and quick too. 
+
+As a admin, I want to have all the features that users and farmers have, except adding new products and receiving payments. Also I want to easily manage users' products and users account.
+
+#### Farmers 
+There is a form for farmers to sign up. Once they finised sign up, they can post their products to sell and also update and delete, they can easily manage their products on their dashboard. Also, the completed farmer sign up form will be posted on the local farmers page directly to increase their visibility. Farmer account can add products to their cart and purchase multiple products at once like normal buyers. 
+
+#### Users/Buyers
+Users can select user sign up button to sign up. After signed up, users can view every page and add products to their carts and complete purchases via credit card and debit cards through stripe. The total amout of the payment will be dispalyed in a table in their cart page. Once the purchase is completed, the products quantity will be updated automatically. 
 
 #### Admin
 
-Admin has the ability to manage all the posted products and it can edit and delete farmers intro post in the farmer page. Also it can conduct purchase function. 
+Admin has the ability to manage all the posted products and it can manage farmers' intro posts. Moreover, admin can delete users' accounts. Nevertheless, admin can perform purchase functions too. 
 
 ## Functionality
 
