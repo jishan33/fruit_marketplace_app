@@ -48,11 +48,11 @@ The search function is added to the top nav-bar. Eveyone can view the website an
 User can add items to their cart and also delete items from their cart. User can buy the items from thier cart via stripe.
 
 ### Add Products to Sell
-Farmers can add products to the products page and they can mange their own products from their dashboard page. 
+Farmers can add products to the products page and they can manage their own products from their dashboard page. 
 
-### Requsets
+### Contact Us
 
-To be continued.
+Contact us form is added on the bottom of the home page. People can send their inquiry or message via fromspree to our email acount. 
 
 ### Login 
 
@@ -88,6 +88,7 @@ Local fruit farmers and general people.
 ##### Users
  - has one cart 
  - has one farmer
+
 ##### Farmers
  - belongs to user
  - has many products
@@ -97,6 +98,8 @@ Local fruit farmers and general people.
 ##### Carts
  - belongs to user
  - has many products
+
+
 
 
 ## Challenges
