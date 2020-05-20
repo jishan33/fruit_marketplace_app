@@ -1,6 +1,6 @@
 class FarmersController < ApplicationController
   before_action :set_farmer, only: [:edit, :update, :destroy, :show]
-  before_action :authenticate_user, only:[:edit, :update, :destroy]
+  before_action :authenticate_user!, only:[:edit, :update, :destroy]
   load_and_authorize_resource
  # this action shows all the farmers in the record and displayed from the index view 
   def index
