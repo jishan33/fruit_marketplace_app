@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :farmer, dependent: :destroy
   has_one :cart, dependent: :destroy
-  enum user_type: {normal: 0, farmer: 1}
+  enum user_type: { normal: 0, farmer: 1 }
 
-  validates :username, presence: true, length: {in: 3..15}
+  validates :username, presence: true, length: { in: 3..15 }
 
   accepts_nested_attributes_for :farmer
 
@@ -15,5 +15,4 @@ class User < ApplicationRecord
     build_farmer if farmer.nil?
     self
   end
-  
 end

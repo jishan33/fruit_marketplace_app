@@ -3,6 +3,4 @@ class ApplicationController < ActionController::Base
     flash[:authorization_error] = "No permit to perform that function ❌"
     redirect_to products_path
   end
-
-  
 end

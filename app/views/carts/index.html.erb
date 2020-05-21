@@ -93,7 +93,10 @@
 <div class="row col-10 d-flex justify-content-end mt-3 mb-5">
   
     <%= link_to "Purchase All Now 💵", "", id: "stripe", class: "btn btn-success mr-2" %>  
-    <%= link_to "Products", products_path, class: 'btn btn-primary sm' %>
+    <%= link_to "Products", products_path, class: 'btn btn-primary sm mr-2' %>
+    <%= link_to 'javascript:history.go(-1);' do %>
+      <%= image_tag 'back.png', size: '30x30' %>
+    <% end %> 
   
 </div>
 

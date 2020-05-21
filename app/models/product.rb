@@ -4,9 +4,9 @@ class Product < ApplicationRecord
   has_many :cart_products, dependent: :delete_all
   has_many  :carts, through: :cart_products
 
-  validates :title, presence: true, length: {in: 1...50}
-  validates :rank, presence: true, length: {in: 1..2}
-  validates :description, presence: true, length: {in: 1...200}
+  validates :title, presence: true, length: { in: 1...50 }
+  validates :rank, presence: true, length: { in: 1..2 }
+  validates :description, presence: true, length: { in: 1...200 }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
   validates :price, presence: true, numericality: { greater_than: 10 }
   validates :farmer_id, presence: true
@@ -14,5 +14,4 @@ class Product < ApplicationRecord
   def display_currency
     '$' + sprintf('%.2f', (self.price).to_s)
   end
-
 end
