@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .alert-error,
 .alert-alert {
@@ -5,6 +6,7 @@
   border-color: #eed3d7;
   color: #b94a48;
   text-align: left;
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 .alert-success,
@@ -13,4 +15,5 @@
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+  font-family: 'Nanum Myeongjo', serif;
 }

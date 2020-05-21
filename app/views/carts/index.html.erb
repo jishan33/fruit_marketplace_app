@@ -10,7 +10,7 @@
       
   
       <%= image_tag picture_for(product), alt: "#{product.title} image", style: 'width:100%;',class: "card-img-top img_fluid" %>
-      <div class="card-body">
+      <div class="card-body" id="card-body">
         <p class="card-text"><%= product.title %></p> 
         <div class="d-flex justify-content-between">
           <%= number_to_currency(product.price)+ " aud"%>  
@@ -90,7 +90,7 @@
  <div class="row col-12 d-flex justify-content-center">
  <p>Note: If the form is not filled, it will send to the address you registered.</p> 
 </div>
-<div class="row col-10 d-flex justify-content-end mt-3 mb-5">
+<div class="row col-10 d-flex justify-content-end mt-3 mb-5" id="show-edit-delete">
   
     <%= link_to "Purchase All Now 💵", "", id: "stripe", class: "btn btn-success mr-2" %>  
     <%= link_to "Products", products_path, class: 'btn btn-primary sm mr-2' %>

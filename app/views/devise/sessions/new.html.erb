@@ -26,13 +26,13 @@
     <% end %>
 
     <div class="d-flex justify-content-end">
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary", id: "login" %>
     </div>
 
   <% end %>
 </div>
   <div class="d-flex justify-content-center mr-5">
-    <div>
+    <div id="devise-links">
       <%= render "devise/shared/links" %>
     </div>
   </div>

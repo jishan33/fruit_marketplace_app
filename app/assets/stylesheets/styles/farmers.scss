@@ -1,4 +1,10 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+.col-md-8, .col-7{
+  font-family: 'Quicksand', sans-serif;
+}
+
 @media screen and (max-width: 750px) {
   h1 {
     font-size: 30px;
