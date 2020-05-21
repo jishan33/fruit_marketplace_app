@@ -66,7 +66,7 @@ Users can login and logout easily.
 
 
 ## Sitemap 
-### User Not Sign In
+### User Not Signed In
 ![Fruit marketplace sitemap](./docs/Sitemap.png)
 
 ### Admin 
