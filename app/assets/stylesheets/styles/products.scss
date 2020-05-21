@@ -1,5 +1,5 @@
 
-.form-group {
+.form-group, .custom-file, #new-product-links {
   font-family: 'Nanum Myeongjo', serif;
 }
 
@@ -9,4 +9,9 @@ img.card-img-top.img_fluid {
 
 .card {
   align-items: center;
+}
+
+#product-show{
+
+font-family: 'Nanum Myeongjo', serif;
 }
