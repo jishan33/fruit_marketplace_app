@@ -9,7 +9,7 @@
     <%= image_tag picture_for(@product) , alt: "#{@product.title} image", class: 'mt-2', style: 'width:50%;' %>
   </div>
 
-  <div class="col-md-4 ml-5 mt-3 justify-content-center" style= 'width:65%;' id="product-show">
+  <div class="col-md-5 ml-5 mt-3 justify-content-center" style= 'width:65%;' id="product-show">
     <h4><%= @product.title %></h4>
     <div>
       <strong>Farmer:  </strong>
@@ -38,7 +38,7 @@
     
   </div>
 
-  <div class=" col-md-7 show-edit-delete d-flex justify-content-end mt-3 mr-5">
+  <div class=" col-md-6 show-edit-delete d-flex justify-content-end mt-3 mr-5" >
     
     <% if user_signed_in? %>
        <%= link_to carts_path(product_id: @product.id), method: :post do %> 
@@ -52,7 +52,7 @@
       <% end %>
     <% end %>
 
-    <%= link_to products_path do %>
+    <%= link_to 'javascript:history.go(-1);' do %>
       <%= image_tag 'back.png', size: '30x30' %>
     <% end %> 
               
