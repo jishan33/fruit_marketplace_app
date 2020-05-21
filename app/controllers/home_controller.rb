@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-# provide the route for presenting home index view.
+# GET/ provide the route for presenting home index view.
   def index 
   end
 end

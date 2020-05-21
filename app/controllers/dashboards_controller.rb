@@ -1,9 +1,9 @@
 class DashboardsController < ApplicationController
 
 
-# this action presents the all products belongs to its farmer by finding the products' farmer_id from the record.
+# GET/ this action presents all the products belongs to current farmer by finding the products' farmer_id from the record in the index html.
 # Admin can see all products from the record.
-# If the farmer has add any product, his/her dashboard page will have no product. 
+# If the farmer has not add any product, his/her dashboard page will have no product. 
   def index
     if current_user.admin == true
       @products =Product.all

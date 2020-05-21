@@ -29,13 +29,13 @@ As a farmer, I want to sign up, login, and logout securely. Post my product with
 
 As a admin, I want to have all the features that users and farmers have, except adding new products and receiving payments. Also I want to easily manage users' products and users account.
 
-#### Farmers 
+### Farmers 
 There is a form for farmers to sign up. Once they finised sign up, they can post their products to sell and also update and delete, they can easily manage their products on their dashboard. Also, the completed farmer sign up form will be posted on the local farmers page directly to increase their visibility. Farmer account can add products to their cart and purchase multiple products at once like normal buyers. 
 
-#### Users/Buyers
+### Users/Buyers
 Users can select user sign up button to sign up. After signed up, users can view every page and add products to their carts and complete purchases via credit card and debit cards through stripe. The total amout of the payment will be dispalyed in a table in their cart page. Once the purchase is completed, the products quantity will be updated automatically. 
 
-#### Admin
+### Admin
 
 Admin has the ability to manage all the posted products and it can manage farmers' intro posts. Moreover, admin can delete users' accounts. Nevertheless, admin can perform purchase functions too. 
 
@@ -63,8 +63,12 @@ Users can login and logout easily.
 To be continued.
 
 
-### Sitemap
+## Sitemap 
+### User Not Sign In
 ![Fruit marketplace sitemap](./docs/Sitemap.png)
+
+### Admin 
+![Fruit marketplace sitemap](./docs/Sitemap_admin.png)
 
 
 ### Target audience
@@ -148,41 +152,9 @@ To be continued
  - reCAPTCHA
 
 
-???
-- sitemap : Does it need interaction?
-- user stories ?
-- Describe your projects models in terms of the relationships (active record associations) they have with each other
-
--	Discuss the database relations to be implemented in your application
-
--	Provide your database schema design
--	Describe the way tasks are allocated and tracked in your project
-clickup screenshot?
 
 
 
 
-Things you may want to cover:
-
-* Ruby version
-  ruby 2.7.0
-
-* System dependencies
-  yarn insatll
-  bundle install
-  aws setup 
-  stripe setup 
-  recaptcha setup 
 
 
-* Database creation
-  postgresql 
-
-* Database initialization
-
-* Services ( search engines, )
-
-
-* Deployment instructions
-
-* ...

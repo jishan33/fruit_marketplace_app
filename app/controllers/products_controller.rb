@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
 
 
-#searching engine algorithm will return the data in database  match to the search key words.
+#searching engine algorithm will return the records in database which match to the search key words.
   def search  
     if params[:search].blank?
       flash[:alert]= "Empty field"
@@ -28,24 +28,25 @@ class ProductsController < ApplicationController
     end 
   end
   
-# this acion return all the products in the products table records and send them to the index view 
+# GET/ this acion returns all the products in the products table records and sends data to the index view 
+# eager loading is added here to minimize database calls.
   def index
-    @products = Product.all
+    @products = Product.with_attached_picture.all
   end
-
+# PATCH/ Firstly, using set_product method to find the product. It provides the route for rendering show page
   def show
   end
 
-# instantiate a new product
+# GET/ instantiate a new product
   def new
     @product = Product.new
   end
 
-#this action create a new product with the fill in params and redirect to show page to present, the new product is instantiated in the new action.
+# POST/ this action create a new product with the filled in html form, because the farmer id is assigned directedly from the current farmer id, the merge method is added. 
   def create
     @product = Product.create(product_params.merge({farmer_id: current_user.farmer.id}))
     
-
+# If the filled in has any validation errors, the new form will be rendered and if the product is added successfully, it will redirected to the product show page.
     if @product.errors.any?
       render :new
     else
@@ -54,20 +55,21 @@ class ProductsController < ApplicationController
     end
   end
 
+# GET/  Before render the edit html in view, using set_product method to find the product 
   def edit
   end
 
 
-# this action update existed product with new params, the product is set by finding its id.
+# PUT/ Before updates existed product with new filled in params form from edit html , using set_product method to find the product. After the action, it will redirect to product show page.
   def update
     if @product.update(product_params)
-      redirect_to @product
-    else
       render :edit
+    else
+      redirect_to @product
     end
   end
 
-# the product is found by its id and this action deletes the product from the record. 
+# DELETE/ Before using this action to delete the product from the record, the set_product method is used to find the product. After the action, it will redirect to products page.
   def destroy
     @product.destroy
     redirect_to products_path
@@ -77,7 +79,7 @@ class ProductsController < ApplicationController
 
 private 
 
-# find the product by its id and the id is found from the string inquery.
+# Use query string parameter to find product's id 
   def set_product
     @product = Product.find(params[:id])
   end

@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-# provide the route for presenting seasons index view.
+# GET/ provide the route for presenting seasons index view.
   def index
   end
 end

@@ -2,17 +2,20 @@ class FarmersController < ApplicationController
   before_action :set_farmer, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!, only:[:edit, :update, :destroy]
   load_and_authorize_resource
- # this action shows all the farmers in the record and displayed from the index view 
+
+ # GET/ this action shows all the farmers in the record and displayed on the index html view. 
+ # eager loading is added here to minimize database calls.
   def index
-    @farmers = Farmer.all
+    @farmers = Farmer.with_attached_picture.all
   end
 
-# provide the route for rendering edit page
+
+# GET/  Before render the edit html in view, using set_farmer method to find the product 
   def edit 
   end
 
 
-#this action update the farmer which is found by its id, with the fill in params and redirect to show page to present.
+# PUT/ Before updates existed farmer with new filled in params form from edit html , using set_farmer method to find the farmer. After the action, it will redirect to farmer show page.
   def update
     if @farmer.update(farmer_params)
       redirect_to  @farmer
@@ -21,24 +24,24 @@ class FarmersController < ApplicationController
     end
   end
 
-# provide the route for rendering show page
+# PATCH/ Firstly, using set_farmer method to find the farmer.it provides the route for rendering show page
   def show 
   end
 
   
-# this action delete the farmer from the record.
+# DELETE/ Before using this action to delete the farmer from the record, using set_farmer method to find the farmer. After the action, it will redirect to farmers page. 
   def destroy
     @farmer.destroy
     redirect_to farmers_path
   end
 
   private 
-# the attributes in framers table is allow to be updated and created.
+# the attributes in framers table is allowed to be updated.
   def farmer_params
     params.require(:farmer).permit(:name, :address, :introduction, :fruit_types, :picture)
   end
 
-# find the farmer by its id and the id is found from the string inquery.
+# Use query string parameter to find farmer's id 
   def set_farmer
     @farmer = Farmer.find(params[:id])
   end

@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-# this action presents all the products belongs to the current user's cart. If there is no product in the cart, it will be redirected to the products page.
+# GET/ this action presents all the products in the records that added to the current user's cart in the html view. If there is no product in the cart, it will be redirected to the products page.
   def index
     if user_signed_in? && current_user.cart
       @cart = current_user.cart
@@ -10,7 +10,7 @@ class CartsController < ApplicationController
   end
 
 
-# If current user does not have a cart, the cart can be created and the complete status is set to false. When current user click on add product to his/her cart the product will be added to the cart and redirect to the cart page. 
+# POST/ If current user does not have a cart, the cart can be created and the complete status is set to false. When current user click on add product to his/her cart the product will be added to the cart and redirect to the cart page. 
   def create
     if !current_user.cart
       cart = Cart.create(completed: false, user_id: current_user.id)
@@ -23,7 +23,7 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
 
-# the action can delete products in the current user's cart and keep the newest record.
+# DELETE/ the action can delete products in the current user's cart and keep the newest record.
 
   def destroy
     cart = current_user.cart
@@ -36,5 +36,3 @@ class CartsController < ApplicationController
   
 end
 
-# eager loading 
-# Cart.with_attached_image.all
