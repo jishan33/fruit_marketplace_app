@@ -64,10 +64,6 @@ Contact us form is added on the bottom of the home page. People can send their i
 
 Users can login and logout easily.
 
-## Screenshoots
-
-To be continued.
-
 
 ## Sitemap 
 ### User Not Sign In
@@ -184,6 +180,16 @@ recaptcha:
   secret_key: <secret>
 ```
 
+
+## Screenshoots
+![screenshot home](./docs/Screenshot-home.png)
+![screenshot products](./docs/Screenshot-products.png)
+![screenshot farmers](./docs/Screenshot-farmer.png)
+![screenshot cart](./docs/Screenshot-cart.png)
+![screenshot dashboard](./docs/Screenshot-dashboard.png)
+![screenshot add product](./docs/Screenshot-add-product.png)
+![screenshot farmer signup](./docs/Screenshot-farmer-signup.png)
+![screenshot user signup ](./docs/Screenshot-user-signup.png)
 
 
 
