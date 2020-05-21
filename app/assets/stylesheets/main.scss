@@ -6,6 +6,33 @@
 @import 'styles/farmers';
 @import 'styles/forms';
 @import 'styles/home';
+@import 'styles/users';
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@1,300&family=Dosis:wght@300&family=Playfair+Display:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+h1, h2, h3 {
+  font-family: 'DM Mono', monospace;
+}
+
+.show-edit-delete, #show-edit-delete{
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+}
+
+p {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+li {
+  
+  margin: 10px;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#sign-up, #logout, #login, #devise-links {
+  font-family: 'Nanum Myeongjo', serif;
+} 

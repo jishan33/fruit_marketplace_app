@@ -1,6 +1,6 @@
 
 
-<h1>Home Page</h1>
+<h1>Local Fruit Market </h1>
 <div class="container d-flex flex-column justify-content-center align-items-center mt-4">
 
   <div class="row">
@@ -28,34 +28,33 @@
     <h3>Australian Local Fruits</h3>
     <p>Australia is a country that produces a wide variety of fruits. The land and the climate are diverse, allowing nummerious types of fruits to grow and ripen in all seasons. In winter time, the most abundant selections are lemons, mandarins, and oranges. </p>
 
-    <span>Check our seasonal fruits page to discover more guides</span>
+    <span id="note">Check our seasonal fruits page to discover more guides >> </span>
     
   </div>
 
-  <div class="row links d-flex justify-content-end mt-3" style="width:90%;">
+  <div class="row links d-flex justify-content-end mt-3" style="width:90%;" id="link-button">
 
-    <%= link_to "seasonal fruits ", season_path, class: "btn btn-success mt-2 mr-2 mb-2" %>
-    <%= link_to products_path do %> 
-      <%= image_tag 'fruit-bag.png', size: '50x50' %>
-    <% end %>
+    <%= link_to "seasonal fruits ", season_path, class: "btn btn-info mt-2 mr-2 mb-2" %>
+    <%= link_to "see our products", products_path, class: "btn btn-info mt-2 mr-2 mb-2"%> 
+      
    
   </div>
   
-  <div class="row col-12 d-flex justify-content-start" style="width:90%;">
+  <div class="row col-12 d-flex justify-content-start mt-3" style="width:90%;">
     <a id="contact-us" href="#contact-us"><h3>Contact Us</h3></a>
   </div>
 
-    <div class="row mt-3" style="width:90%;">
+    <div class="row mt-1" style="width:90%;">
 
       <div class="col-3 d-flex flex-column" id="contact-us-pic">
         <%=image_tag image_path("home/farmer-contact.jpg"), alt: "Us", size: "150x150" %>
 
-        <button class="btn btn-success mb-5" style="width:150px; " type="submit">Submit >> </button>    
+        <button class="btn btn-success mb-5" style="width:150px; " type="submit">Submit</button>    
       </div>
 
     
 
-      <div class="col-9 mb-5 mt-3">  
+      <div class="col-9 mb-5 mt-2">  
 
         <form action="https://formspree.io/mjvozkeg" method="POST">
       

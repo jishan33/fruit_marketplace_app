@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
+#contact-us{
+  text-decoration: none;
+  color: rgb(41, 122, 122);
+  font-weight: bold;
+}
 
+span, .form-group, #link-button, button  {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#note {
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  color: rgb(194, 57, 80);
+}
 
 
 @media screen and (max-width: 1200px) {
@@ -16,6 +31,7 @@
     height: 170px;
     margin: 1px;
   }
+
 
  }
 

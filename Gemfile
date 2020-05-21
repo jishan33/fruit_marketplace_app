@@ -60,3 +60,5 @@ gem "stripe", "~> 5.22"
 gem "recaptcha", "~> 5.5"
 
 gem "nested_form", "~> 0.3.2"
+
+gem "rubocop-rails"
