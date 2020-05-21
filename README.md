@@ -19,15 +19,21 @@ https://github.com/jishan33/fruit_marketplace_app
 ## Description 
 
 ### Purpose
-Provide local fruit farmers a friendly online selling platform to assist farmers to increase their profit by saving the middle men handling costs, also to provide the freshest fruits deliver directly from the farms. 
+Provide local fruit farmers a friendly online selling platform to assist farmers to increase their profit by saving the middle men handling costs, also to provide the freshest fruits deliver directly from the farms. Farmers having direct access to customers reduces the influence of large supermarket corporations and allows customers to know where products are produced. It also affords consumers more choice in which kind of products and farming techniques they want to support.
 
 ## User Stories
 
-As a buyer, I want to sign up, login, and logout securely as well as make purchases via very secure websites. 
+As a buyer, I want to sign up, login, and logout securely as well as make purchases via very secure websites so that I can transact securely. 
 
-As a farmer, I want to sign up, login, and logout securely. Post my product with high visibility and add new products relatively easy. More importantly, I would like to receive my payment farirly easy and quick too. 
+As a farmer, I want to sign up, login, and logout securely so that my business information stays safe.
 
-As a admin, I want to have all the features that users and farmers have, except adding new products and receiving payments. Also I want to easily manage users' products and users account.
+As a farmer, I want to post my product with high visibility and add new products relatively easily to market directly to consumers. 
+
+As a farmer, I would like to receive my payment easily and quickly to keep my business healthy and sustainable. 
+
+As an admin, I want to have all the features that users and farmers have, except adding new products and receiving payments so that I can administer the site. 
+
+As an admin, I want to easily manage users' products and users accounts so that I can correct mistakes or remove troublesome users.
 
 ### Farmers 
 There is a form for farmers to sign up. Once they finised sign up, they can post their products to sell and also update and delete, they can easily manage their products on their dashboard. Also, the completed farmer sign up form will be posted on the local farmers page directly to increase their visibility. Farmer account can add products to their cart and purchase multiple products at once like normal buyers. 
@@ -42,7 +48,7 @@ Admin has the ability to manage all the posted products and it can manage farmer
 ## Functionality
 
 ### Search Engine
-The search function is added to the top nav-bar. Eveyone can view the website and conduct search function. If they search price, all the products' prices less than the search price will be displayed and if they search words, any data matched to the word in products and farmers tables will be displayed, the partial matches are also included.
+The search function is added to the top nav-bar. Eveyone can view the website and conduct searches. If they search price, all the products' prices less than the search price will be displayed and if they search words, any data matched to the word in products and farmers tables will be displayed, the partial matches are also included.
 
 ### Shopping Cart
 User can add items to their cart and also delete items from their cart. User can buy the items from thier cart via stripe.
@@ -146,6 +152,10 @@ This app has two types of users, farmer and normal. Farmers table belogs to user
 ![Wireframe](./docs/wireframe-2.png)
 ![Wireframe](./docs/wireframe-3.png)
 ![Wireframe](./docs/wireframe-4.png)
+
+
+## Task tracking
+![Task tracking](./docs/task-tracking.png)
 
 
 

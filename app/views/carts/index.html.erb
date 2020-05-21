@@ -12,6 +12,7 @@
       <%= image_tag picture_for(product), alt: "#{product.title} image", style: 'width:100%;',class: "card-img-top img_fluid" %>
       <div class="card-body" id="card-body">
         <p class="card-text"><%= product.title %></p> 
+        <p class="card-text">Quantity: 1</p> 
         <div class="d-flex justify-content-between">
           <%= number_to_currency(product.price)+ " aud"%>  
           <%= link_to carts_path + "/#{cart_product.id}", method: :delete, data: { confirm: "Confirm remove #{product.title} from your cart?"} do %>
@@ -88,7 +89,7 @@
 
 
  <div class="row col-12 d-flex justify-content-center">
- <p>Note: If the form is not filled, it will send to the address you registered.</p> 
+ <p>Note: If the form is not filled correctly, it will send to the address you registered.</p> 
 </div>
 <div class="row col-10 d-flex justify-content-end mt-3 mb-5" id="show-edit-delete">
   
