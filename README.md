@@ -167,6 +167,23 @@ This app has two types of users, farmer and normal. Farmers table belogs to user
 
 
 
+## Credentials needed
+Make sure your credentials.yml.enc looks like:
+
+```
+aws:
+  access_key_id: <secret>
+  secret_access_key: <secret>
+
+stripe:
+  secret_key: <secret>
+  public_key: <secret>
+
+recaptcha:
+  site_key: <secret>
+  secret_key: <secret>
+```
+
 
 
 
