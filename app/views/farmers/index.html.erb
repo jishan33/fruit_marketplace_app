@@ -28,7 +28,7 @@
         <% if user_signed_in? && (current_user.admin || current_user.farmer == farmer )%>
           <%= link_to 'Edit', edit_farmer_path(farmer.id), class: 'btn btn-info sm'%>
 
-          <%= link_to 'Delete', farmer_path(farmer.id), method: :delete, class: 'btn btn-info sm', data: { confirm: "Really delete #{farmer.name}?"} %>
+          <%= link_to 'Delete', farmer_path(farmer.id), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{farmer.name}?"} %>
         <% end %>
       
       

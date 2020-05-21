@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
-  # this action will be performed when the payment has made successed, the items has been purchased, their quantity will be substracted by the purchased amount. Also the cart will be cleared out.
+  # this action will be performed when the payment has succeeded, the items has been purchased, their quantity will be substracted by the purchased amount. Also the users cart will be cleared out.
   def success
     cart = Cart.find(params[:cartId])
     products = cart.products
@@ -13,6 +13,7 @@ class PaymentsController < ApplicationController
     cart.destroy
   end
 
+  # used for local host testing
   def webhook
     payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
@@ -23,8 +24,8 @@ class PaymentsController < ApplicationController
     head 200
   end
 
-  # stipe connected code
-
+  # stipe connected code. Get the products in the users cart and translate them into stripe line items.
+  # Pass success_url to stripe to let us know when the transaction is successful (see success method on this controller)
   def get_stripe_id
     cart = current_user.cart
     products = cart.products

@@ -142,7 +142,11 @@ This app has two types of users, farmer and normal. Farmers table belogs to user
 
 ## Wireframes 
 
-To be continued
+![Wireframe](./docs/wireframe-1.png)
+![Wireframe](./docs/wireframe-2.png)
+![Wireframe](./docs/wireframe-3.png)
+![Wireframe](./docs/wireframe-4.png)
+
 
 
 ## Third party services

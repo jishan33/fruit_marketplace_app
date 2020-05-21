@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   load_and_authorize_resource
 
-  # searching engine algorithm will return the records in database which match to the search key words.
+  # searching algorithm will return the records in database which match to the search key words.
+  # Also provides some additionally functionality around price searching if the user entered a number only.
   def search
     if params[:search].blank?
       flash[:alert] = "Empty field"
@@ -25,22 +26,22 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET/ this acion returns all the products in the products table records and sends data to the index view
+  # GET/ this acion returns all the products in the products table and sends data to the index view
   # eager loading is added here to minimize database calls.
   def index
     @products = Product.with_attached_picture.all
   end
 
-  # PATCH/ Firstly, using set_product method to find the product. It provides the route for rendering show page
+  # GET/ Firstly, using set_product method to find the product. It provides the route for rendering show page
   def show
   end
 
-  # GET/ instantiate a new product
+  # POST/ render the form for the creation of a new product
   def new
     @product = Product.new
   end
 
-  # POST/ this action create a new product with the filled in html form, because the farmer id is assigned directedly from the current farmer id, the merge method is added.
+  # POST/ this action creates a new product with the filled in html form, because the farmer id is assigned directedly from the current farmer id, the merge method is added.
   def create
     @product = Product.create(product_params.merge({ farmer_id: current_user.farmer.id }))
 
@@ -57,7 +58,7 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  # PUT/ Before updates existed product with new filled in params form from edit html , using set_product method to find the product. After the action, it will redirect to product show page.
+  # PUT/ Updates the existing product with new filled in params form from edit html , uses set_product method to find the product. After the action, it will redirect to product show page.
   def update
     if @product.update(product_params)
       redirect_to @product

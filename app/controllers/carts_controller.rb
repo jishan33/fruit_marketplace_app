@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  # GET/ this action presents all the products in the records that added to the current user's cart in the html view. If there is no product in the cart, it will be redirected to the products page.
+  # GET/ this action presents all the products that have been added to the current user's cart in the html view. If there are no products in the cart, it will be redirected to the products page.
   def index
     if user_signed_in? && current_user.cart
       @cart = current_user.cart
