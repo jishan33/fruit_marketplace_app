@@ -4,7 +4,8 @@
 
 ### The link to my published App
 
-https://fruit-marketplace-app.herokuapp.com/
+http://fruit-market.jishan33.com/
+
 
 ### The link to the GitHub repository
 
