@@ -1,0 +1,17 @@
+
+
+<div class=" d-flex flex-column justify-content-start mr-5 mt-4">
+  <div class="col-md-1 ">
+    <h5>Commenter: </h5>
+    <p><%= comment.commenter%></p>
+  </div>
+
+  <div class="col-md-4">
+    <h5>Comment: </h5>
+    <p><%= comment.body %></p>
+  </div>
+
+  <div class="col-md-4">
+    <%= link_to 'Delete', [comment.product, comment], method: :delete, data: { confirm: 'Confirm to delete?'}, class: "btn btn-outline-warning sm"  %>
+  </div>
+</div>

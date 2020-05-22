@@ -7,9 +7,12 @@ class Ability
     user ||= User.new
     can :read, :all
     can :search, :all
+    can :create, :comments
+    can :read, :comments
+    
 
     if user.farmer?
-      can :create, Product
+      can :create, Product, Comment
       can :manage, Product, farmer_id: user.farmer.id
       can :manage, Farmer, id: user.farmer.id
     end
