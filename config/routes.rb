@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
  
-  
- 
-  
-  resources :products, :farmers
+  resources :products do
+    resources :comments
+  end
+
+  resources :farmers do
+    resources :messages
+  end
+
   resources :carts, only: [:create, :index, :destroy]
   get "/users_table", to: "users#index", as:"users_table"
   delete "/users_table/:id", to: "users#destroy"
