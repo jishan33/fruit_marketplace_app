@@ -12,7 +12,7 @@ class Ability
     
 
     if user.farmer?
-      can :create, Product, Comment
+      can :create, Product
       can :manage, Product, farmer_id: user.farmer.id
       can :manage, Farmer, id: user.farmer.id
     end
