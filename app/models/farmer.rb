@@ -1,6 +1,8 @@
 class Farmer < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :farm_locations, dependent: :destroy
+
   belongs_to :user
   has_one_attached :picture
 

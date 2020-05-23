@@ -62,3 +62,5 @@ gem "recaptcha", "~> 5.5"
 gem "nested_form", "~> 0.3.2"
 
 gem "rubocop-rails"
+
+gem "geocoder", "~> 1.6"
