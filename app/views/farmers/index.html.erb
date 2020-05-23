@@ -10,13 +10,18 @@
   <div class="col-7 mt-4">
     <article>
       
-      <span><strong>Farmer : </strong><%= " "+ farmer.name %></span><br>
+      <span class="mb-1"><strong>Farmer : </strong><%= " "+ farmer.name %></span><br>
   
-      <span ><strong>Fruit : </strong><%= " "+ farmer.fruit_types %></span><br>
+      <span class="mb-1" ><strong>Fruit : </strong><%= " "+ farmer.fruit_types %></span><br>
    
+      <div>
+      <strong class="mr-2">Address: </strong>
+      <%= link_to farm_locations_path + "/#{farmer.id}" do %>
+        <%= image_tag 'map.png', size: '30x30' %>
+      <% end %>
+      </div>  
     
-    
-      <span><strong>Introdution : </strong><%= " "+ farmer.introduction %></span>
+      <span class="mb-1" ><strong>Introdution : </strong><%= " "+ farmer.introduction %></span>
     
     </article>
   

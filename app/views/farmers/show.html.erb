@@ -20,7 +20,12 @@
       <span><%= " "+ @farmer.fruit_types %></span>
     </div>
 
-   
+    <div>
+      <strong class="mr-2">Address: </strong>
+      <%= link_to farm_locations_path + "/#{@farmer.id}" do %>
+        <%= image_tag 'map.png', size: '30x30' %>
+      <% end %>
+    </div>   
 
     <div>
       <strong>Introduction :  </strong>

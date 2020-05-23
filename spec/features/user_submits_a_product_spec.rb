@@ -10,7 +10,7 @@ RSpec.feature "Farmer submits a product" do
     product_price = 80
     # Our product requires a store to be valid
     user = User.create(username: 'Test user', email: 'email@domain.com', password: 'password', user_type: 'farmer')
-    farmer = Farmer.create(user_id: user.id, name: "John Lu", address: "123 farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
+    farmer = Farmer.create(user_id: user.id, name: "John Lu", fruit_types: "apples", introduction: "hello I am a farmer")
 
 
     visit user_session_path
@@ -19,7 +19,7 @@ RSpec.feature "Farmer submits a product" do
     click_on 'Log in'
 
 
-    find(:xpath, '//*[@id="navbarNavAltMarkup"]/div[1]/a[4]').click
+    visit new_product_path
     fill_in 'product[title]', with: product_title
     fill_in 'product[rank]', with: product_rank
     fill_in 'product[quantity]', with: product_quantity

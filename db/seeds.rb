@@ -33,3 +33,16 @@ products.each do |item|
 
 end
 puts "successfully seeded products ✅"
+
+
+puts "seeding farm locations"
+
+farm_locations.each_with_index do |location, index|
+  location[:farmer_id] = farmers_record[index].id
+  farm_location_record = FarmLocation.create(location)
+end
+
+puts "successfully seeded farm locations ✅"
+
+
+

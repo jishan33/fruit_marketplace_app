@@ -73,5 +73,18 @@ def farmers
 ]
 end
 
+def farm_locations 
+[
+  { 
+    address: "111 Forest Road, Gentle Annie VIC 3833"
+  },
+
+  {
+    address: "163 Albert Rd, Healesville VIC 3777"
+
+  }
+]
+end
+
 
 

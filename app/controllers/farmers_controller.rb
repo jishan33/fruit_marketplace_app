@@ -36,7 +36,7 @@ class FarmersController < ApplicationController
 
   # set the attributes in the farmers table to allow them to be updated.
   def farmer_params
-    params.require(:farmer).permit(:name, :address, :introduction, :fruit_types, :picture)
+    params.require(:farmer).permit(:name, :introduction, :fruit_types, :picture)
   end
 
   # Use query parameter to find farmer's id

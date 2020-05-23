@@ -6,13 +6,12 @@ require 'rails_helper'
     User.create(username: 'test1', email: "user@example.org", password: "very-secret", user_type: "farmer")
     }
     let(:farmer) {
-    Farmer.create(user_id: user.id, name: "John Lu", address: "farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
+    Farmer.create(user_id: user.id, name: "John Lu", fruit_types: "apples", introduction: "hello I am a farmer")
     }
 
 
     subject {described_class.new(
       name: 'John',
-      address: 'Glen yarra 123',
       fruit_types: 'Apples',
       introduction: 'I am a farmer',
       user_id: user.id
@@ -43,16 +42,6 @@ require 'rails_helper'
 
     it 'is valid with a name less than 20 letters' do
       subject.name = 'Keanu reeves' 
-      expect(subject).to be_valid
-    end
-
-    it 'is not valid with an address less than 12 letter' do
-      subject.address = 'address' 
-      expect(subject).to_not be_valid
-    end
-
-    it 'is valid with an address less than 50 letter' do
-      subject.address = '33 farmer st, Geln yarra 3041' 
       expect(subject).to be_valid
     end
 

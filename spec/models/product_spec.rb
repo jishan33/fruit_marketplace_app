@@ -6,7 +6,7 @@ RSpec.describe Product, type: :model do
    User.create(username: 'keanu reeves', email: "user@example.org", password: "very-secret", user_type: "farmer")
    }
  let(:farmer) {
-   Farmer.create(user_id: user.id, name: "John Lu", address: "farmer address", fruit_types: "apples", introduction: "hello I am a farmer")
+   Farmer.create(user_id: user.id, name: "John Lu", fruit_types: "apples", introduction: "hello I am a farmer")
    }
 
 
