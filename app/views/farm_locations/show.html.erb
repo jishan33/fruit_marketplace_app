@@ -1,8 +1,12 @@
 
-<h2 class="mt-5 mb-3"><%=  @farm_location.farmer.name %> 's Farm</h2>
-<h3 class="mb-3">Address: <%= @farm_location.address %></h3>
+<div class="row">
+  <h2 class="mt-5 mb-3 ml-3"><%=  @farm_location.farmer.name %> 's Farm</h2>
+</div>
+<div class="row">
+  <h4 class="mb-4 ml-3">Address: <%= @farm_location.address %></h4>
+</div>
 
-
-
-<div style="height: 500px" id="map"></div>
-<%= javascript_pack_tag "leaflet/show" %>
+<div class=" map-layout">
+  <div style="height: 500px" id="map"></div>
+  <%= javascript_pack_tag "leaflet/show" %>
+</div>
