@@ -43,3 +43,19 @@ table farmers {
   user_id int [ref: - users.id]
 }
 
+table comments {
+  id int[pk]
+  commenter string
+  body text
+  user_id int [ref: < users.id]
+  product_id int [ref: < products.id]
+ }
+ 
+table messages {
+  id int[pk]
+  sender string
+  body text
+  user_id int [ref: < users.id]
+  farmer_id int [ref: < farmers.id]
+ }
+

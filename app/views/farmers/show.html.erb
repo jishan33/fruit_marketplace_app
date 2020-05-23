@@ -30,7 +30,23 @@
       <span><%=" "+  @farmer.introduction %></span>
     </div>
 </div>
-    <div class=" row mt-5 ">
+
+  
+  <div class="col-12 d-flex justify-content-end show-edit-delete mt-3 ">
+
+      <% if user_signed_in? && (current_user.farmer == @farmer || current_user.admin?) %>
+        <%= link_to 'Edit', edit_farmer_path(@farmer), class: 'btn btn-info sm  mb-2'%>
+        <%= link_to 'Delete', farmer_path(@farmer), method: :delete, class: 'btn btn-danger sm ml-2 mb-2', data: { confirm: "Really delete #{@farmer.name}?"} %>
+    <% end %> 
+    <div class="d-flex justify-content-end">
+      <%= link_to farmers_path, class: 'btn' do %>
+          <%= image_tag 'back.png', size: '30x30' %>
+      <% end %> 
+    </div>
+            
+  </div>
+
+  <div class=" row col-12 mt-5 ">
       <div class="col-6 mt-4">
         <%= render @farmer.messages %>
       </div>
@@ -42,22 +58,5 @@
       
     </div>
 
-   
-    
-    
-    <div class=" row show-edit-delete mt-3">
-
-       <% if user_signed_in? && (current_user.farmer == @farmer || current_user.admin?) %>
-          <%= link_to 'Edit', edit_farmer_path(@farmer), class: 'btn btn-info sm'%>
-          <%= link_to 'Delete', farmer_path(@farmer), method: :delete, class: 'btn btn-danger sm', data: { confirm: "Really delete #{@farmer.name}?"} %>
-      <% end %> 
-      <div class="d-flex justify-content-end">
-        <%= link_to farmers_path, class: 'btn' do %>
-            <%= image_tag 'back.png', size: '30x30' %>
-        <% end %> 
-      </div>
-              
-    </div>
-
-  </div>
+  
 
