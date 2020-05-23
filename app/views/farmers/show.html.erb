@@ -4,11 +4,11 @@
 <% end %>
 
 
-<div class="row content mt-3 d-flex justify-content-center">
-  <div class="col-md-8 d-flex justify-content-center">
+<div class="row content mt-3 ">
+  <div class="col-6 md-5 mt-5">
     <%= image_tag farmer_pic(@farmer) , alt: "#{@farmer.name} image", class: 'mt-2', style: 'width:100%;' %>
   </div>
-  <div class="col-md-8 text-align-center mt-3">
+  <div class="col-6 d-flex flex-column justify-content-center md-5 mt-5">
   
     <div>
       <strong>Farmer :  </strong>
@@ -29,13 +29,13 @@
       <strong>Introduction :  </strong>
       <span><%=" "+  @farmer.introduction %></span>
     </div>
-
+</div>
     <div class=" row mt-5 ">
-      <div class="col-4 mt-4">
+      <div class="col-6 mt-4">
         <%= render @farmer.messages %>
       </div>
 
-      <div class="col-8">
+      <div class="col-6">
         <h3>Add your Message: </h3>
         <%= render 'messages/form' %>
       </div> 
@@ -60,4 +60,4 @@
     </div>
 
   </div>
-</div>
+
