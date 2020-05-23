@@ -22,7 +22,7 @@ class Ability
       can :manage, Product, farmer_id: user.farmer.id
       can :manage, Farmer, id: user.farmer.id
 
-      can :manage, Message, farmer_id: user.farmer.id
+      can :destroy, Message, farmer_id: user.farmer.id
 
       can :destroy, Comment do |comment|
         comment.product.farmer.id == user.farmer.id
