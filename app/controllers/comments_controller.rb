@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   def create
     @product = Product.find(params[:product_id])
     @comment = @product.comments.create(comment_params)

@@ -1,0 +1,19 @@
+
+
+<div class=" d-flex flex-column justify-content-start mr-5 mt-4">
+  <div class="col-md-1 ">
+    <h5>Sender: </h5>
+    <p><%= message.sender%></p>
+  </div>
+
+  <div class="col-md-4">
+    <h5>Messaget: </h5>
+    <p><%= message.body %></p>
+  </div>
+
+  <div class="col-md-4">
+    <% if  user_signed_in? && (current_user.farmer == @farmer|| current_user.admin)%>
+      <%= link_to 'Delete', [@farmer, message], method: :delete, data: { confirm: 'Confirm to delete?'}, class: "btn btn-outline-warning sm"  %>
+    <% end %>
+  </div>
+</div>
