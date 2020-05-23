@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+  
   resources :products do
     resources :comments
   end
@@ -29,6 +29,11 @@ Rails.application.routes.draw do
 
   get "/search", to: "products#search", as: "search"
   get "/seasons", to: "seasons#index", as: "season"
+
+
+  get '/farm_locations', to: 'farm_locations#index'
+  get 'farm_locations/:id', to: 'farm_locations#show'
+  get '/farm_locations/map/:search', to: "farm_locations#search"
 
   root to: 'home#index'
 end

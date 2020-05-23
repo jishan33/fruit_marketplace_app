@@ -1,0 +1,11 @@
+
+<h1>Farms' Locations</h1>
+
+<% @farm_locations.each do |farm| %>
+  <h3>Farmer: <%= farm.farmer.name %></h3>
+  <h3>Address: <%= farm.address %></h3>
+<% end %>
+
+
+<div style="height: 500px" id="map"></div>
+<%= javascript_pack_tag "leaflet/index" %>

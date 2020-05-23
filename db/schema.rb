@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_012256) do
+ActiveRecord::Schema.define(version: 2020_05_23_055040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,17 @@ ActiveRecord::Schema.define(version: 2020_05_23_012256) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "farm_locations", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "farmer_id", null: false
+    t.index ["farmer_id"], name: "index_farm_locations_on_farmer_id"
+  end
+
   create_table "farmers", force: :cascade do |t|
-    t.text "address"
     t.text "fruit_types"
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
@@ -117,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_012256) do
   add_foreign_key "carts", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "farm_locations", "farmers"
   add_foreign_key "farmers", "users"
   add_foreign_key "messages", "farmers"
   add_foreign_key "messages", "users"

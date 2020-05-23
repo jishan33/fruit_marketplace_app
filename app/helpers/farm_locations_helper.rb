@@ -1,0 +1,2 @@
+module FarmLocationsHelper
+end
