@@ -5,7 +5,8 @@ class MessagesController < ApplicationController
 
   def create
     @farmer = Farmer.find(params[:farmer_id])
-    @message = @farmer.messages.create(message_params)
+    @message = @farmer.messages.create(message_params.merge({user_id: current_user.id}))
+    
     redirect_to farmer_path(@farmer)
   end
 
@@ -18,7 +19,9 @@ class MessagesController < ApplicationController
 
 private
   def message_params
+    
     params.require(:message).permit(:sender, :body)
+    
   end
 
 end
