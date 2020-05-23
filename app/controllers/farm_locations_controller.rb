@@ -15,7 +15,6 @@ class FarmLocationsController < ApplicationController
   def show
     @farm_location = FarmLocation.find(params[:id])
     if params[:type] == 'json'
-      byebug
       render json: {
         data: [@farm_location.latitude, @farm_location.longitude],
       center: [@farm_location.latitude, @farm_location.longitude]}
