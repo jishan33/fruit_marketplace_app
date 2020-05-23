@@ -1,17 +1,16 @@
 
 
-<div class=" d-flex flex-column justify-content-start mr-5 mt-4">
-  <div class="col-md-1 ">
-    <h5>Commenter: </h5>
-    <p><%= comment.commenter%></p>
+<div class=" d-flex flex-column justify-content-start " style="width:100%">
+  <div class="col md-1 ">
+    <h5>Commenter: <%= comment.commenter%></h5>
   </div>
 
-  <div class="col-md-4">
+  <div class="col md-4">
     <h5>Comment: </h5>
     <p><%= comment.body %></p>
   </div>
 
-  <div class="col-md-4">
+  <div class="col md-4 d-flex justify-content-end">
     <% if user_signed_in? && (current_user.id == comment.user_id || current_user.farmer == @product.farmer || current_user.admin) %>
       <%= link_to 'Delete', [comment.product, comment], method: :delete, data: { confirm: 'Confirm to delete?'}, class: "btn btn-outline-warning sm", id: "delete-comment" %>
     <% end %>
