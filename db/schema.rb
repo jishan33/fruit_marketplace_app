@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_130301) do
+ActiveRecord::Schema.define(version: 2020_05_23_012256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_05_22_130301) do
     t.string "commenter"
     t.text "body"
     t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
     t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "farmers", force: :cascade do |t|
@@ -77,7 +79,9 @@ ActiveRecord::Schema.define(version: 2020_05_22_130301) do
     t.bigint "farmer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["farmer_id"], name: "index_messages_on_farmer_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -112,7 +116,9 @@ ActiveRecord::Schema.define(version: 2020_05_22_130301) do
   add_foreign_key "cart_products", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "farmers", "users"
   add_foreign_key "messages", "farmers"
+  add_foreign_key "messages", "users"
   add_foreign_key "products", "farmers"
 end

@@ -30,10 +30,22 @@
       <span><%=" "+  @farmer.introduction %></span>
     </div>
 
+    <div class=" row mt-5 ">
+      <div class="col-4 mt-4">
+        <%= render @farmer.messages %>
+      </div>
+
+      <div class="col-8">
+        <h3>Add your Message: </h3>
+        <%= render 'messages/form' %>
+      </div> 
+      
+    </div>
+
    
     
     
-    <div class="show-edit-delete mt-3">
+    <div class=" row show-edit-delete mt-3">
 
        <% if user_signed_in? && (current_user.farmer == @farmer || current_user.admin?) %>
           <%= link_to 'Edit', edit_farmer_path(@farmer), class: 'btn btn-info sm'%>

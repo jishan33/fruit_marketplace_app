@@ -12,6 +12,8 @@
   </div>
 
   <div class="col-md-4">
-    <%= link_to 'Delete', [comment.product, comment], method: :delete, data: { confirm: 'Confirm to delete?'}, class: "btn btn-outline-warning sm"  %>
+    <% if user_signed_in? && (current_user.id == comment.user_id || current_user.farmer == @product.farmer || current_user.admin) %>
+      <%= link_to 'Delete', [comment.product, comment], method: :delete, data: { confirm: 'Confirm to delete?'}, class: "btn btn-outline-warning sm"  %>
+    <% end %>
   </div>
 </div>
