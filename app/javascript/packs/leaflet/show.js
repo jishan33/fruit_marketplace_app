@@ -1,6 +1,6 @@
 import { icon } from './icon'
 import { tileLayer } from './tileLayer'
-import L from 'leaflet'
+
 
 
 const renderMap = async () => {

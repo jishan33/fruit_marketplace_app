@@ -1,6 +1,6 @@
 import { icon } from './icon'
 import { tileLayer } from './tileLayer'
-import L from 'leaflet'
+
 
 
 const renderMap = async (search) => {
@@ -12,6 +12,7 @@ const renderMap = async (search) => {
     return L.marker([location[0], location[1]], {icon: icon})
   })
   L.featureGroup(markers).addTo(map)
+  submit.disabled = false
 }
 
 renderMap()
