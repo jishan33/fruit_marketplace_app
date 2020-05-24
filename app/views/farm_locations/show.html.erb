@@ -6,7 +6,8 @@
   <h4 class="mb-4 ml-3">Address: <%= @farm_location.address %></h4>
 </div>
 
-<div class=" map-layout">
-  <div style="height: 500px" id="map"></div>
+<div class=" map-layout" style="height: 500px">
+  <div style="height: 500px" id="map">
   <%= javascript_pack_tag "leaflet/show" %>
+  </div>
 </div>

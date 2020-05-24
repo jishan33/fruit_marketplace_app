@@ -2,14 +2,15 @@
   <h1>Farms' Locations</h1>
 </div>
 
-<div class="row mt-5 mb-5">
+<div class=" mt-5 mb-5">
   <% @farm_locations.each do |farm| %>
     <h4>Farmer: <%= farm.farmer.name %></h4>
     <h5>Address: <%= farm.address %></h5>
   <% end %>
 </div>
 
-<div class="map-layout">
-  <div style="height: 500px" id="map"></div>
-  <%= javascript_pack_tag "leaflet/index" %>
+<div class="map-layout" style="height: 500px">
+  <div style="height: 500px" id="map">
+    <%= javascript_pack_tag "leaflet/index" %>
+  </div>
 </div>

@@ -37,14 +37,13 @@ table products {
 table farmers {
   id int [pk]
   name string
-  address text
   fruit_types text
   introduction text
   user_id int [ref: - users.id]
 }
 
 table comments {
-  id int[pk]
+  id int [pk]
   commenter string
   body text
   user_id int [ref: < users.id]
@@ -52,10 +51,16 @@ table comments {
  }
  
 table messages {
-  id int[pk]
+  id int [pk]
   sender string
   body text
   user_id int [ref: < users.id]
   farmer_id int [ref: < farmers.id]
  }
+ 
+table farm_locations {
+  id int [pk]
+  address string
+  farmer_id int [ref: < farmers.id]
+  }
 
