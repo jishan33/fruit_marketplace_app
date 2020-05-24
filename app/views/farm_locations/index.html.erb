@@ -2,10 +2,10 @@
   <h1>Farms' Locations</h1>
 </div>
 
-<div class=" mt-5 mb-5">
+<div class=" mt-5 mb-5 ml-3">
   <% @farm_locations.each do |farm| %>
     <h4>Farmer: <%= farm.farmer.name %></h4>
-    <h5>Address: <%= farm.address %></h5>
+    <h5><%= link_to farm.address, farm_locations_path + "/#{farm.id}" %></h5>
   <% end %>
 </div>
 
