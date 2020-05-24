@@ -2,13 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .map-container {
-        display: flex;
-        width: 100%;
-        justify-content: flex-start;
-        z-index: 1;
-        .map-layout {
-            height: 500px;
-            width: 700px;
-            overflow: hidden;
-        }
+      
+  height: 500px;
+  width: 100%;
+  
+        
 }
