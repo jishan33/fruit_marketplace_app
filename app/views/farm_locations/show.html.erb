@@ -5,9 +5,12 @@
 <div class="row">
   <h4 class="mb-4 ml-3">Address: <%= @farm_location.address %></h4>
 </div>
+<% latitude = @farm_location.latitude %>
+<% longitude = @farm_location.longitude %>
 
 
 <div class="map-container">
   <div style="height: 500px;" id="map"></div>
   <%= javascript_pack_tag "leaflet/show" %>
 </div>
+
