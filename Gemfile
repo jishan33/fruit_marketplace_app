@@ -65,4 +65,5 @@ gem "rubocop-rails"
 
 gem "geocoder", "~> 1.6"
 
+gem 'google-analytics-rails', '1.1.1'
 
