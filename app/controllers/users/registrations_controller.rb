@@ -18,6 +18,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :user_type, farmer_attributes: [:name, :address, :introduction, :fruit_types, :picture]])
   end
 
+  
+
   protected
 
   # The path used after sign up.
