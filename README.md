@@ -4,7 +4,7 @@
 
 ### The link to my published App
 
-http://fruit-market.jishan33.com/
+http://fruit-market.jishan33.com
 
 
 ### The link to the GitHub repository
